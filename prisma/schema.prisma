@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Slide {
+  id        Int      @id @default(autoincrement())
+  title     String
+  image     String?
+  link      String?
+  position  Int      @default(0)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  excerpt   String
+  content   String
+  image     String?
+  published Boolean  @default(true)
+  postedAt  DateTime @default(now())
+}
+
+model GalleryItem {
+  id        Int      @id @default(autoincrement())
+  type      String   @default("IMAGE") // IMAGE | VIDEO
+  url       String   // image URL, or YouTube video URL for VIDEO
+  caption   String?
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  title     String
+  link      String?
+  createdAt DateTime @default(now())
+}
+
+model Stat {
+  id       Int    @id @default(autoincrement())
+  label    String
+  value    Int
+  position Int    @default(0)
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  body      String
+  createdAt DateTime @default(now())
+}
+
+model Subscriber {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Donation {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  pan       String?
+  amount    Int
+  purpose   String
+  status    String   @default("PENDING") // PENDING | PAID | FAILED
+  gatewayRef String?
+  createdAt DateTime @default(now())
+}
