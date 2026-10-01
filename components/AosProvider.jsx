@@ -2,39 +2,49 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function AosProvider() {
   const pathname = usePathname();
 
   useEffect(() => {
-    AOS.init({
-      duration: 700,
-      easing: "ease-out-cubic",
-      once: false,
-      offset: 30, // Trigger early on mobile screens
-      delay: 50,
-      disable: false, // Explicitly enable on mobile & tablet devices
-      startEvent: "DOMContentLoaded",
+    let aosInstance = null;
+
+    import("aos").then((AOS) => {
+      const aos = AOS.default || AOS;
+      aosInstance = aos;
+      aos.init({
+        duration: 700,
+        easing: "ease-out-cubic",
+        once: false,
+        offset: 30,
+        delay: 50,
+        disable: false,
+      });
+
+      const handleResize = () => {
+        aos.refresh();
+      };
+
+      window.addEventListener("resize", handleResize);
+      window.addEventListener("orientationchange", handleResize);
     });
 
-    const handleResize = () => {
-      AOS.refresh();
-    };
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("orientationchange", handleResize);
-
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("orientationchange", handleResize);
+      if (aosInstance) {
+        window.removeEventListener("resize", () => {});
+        window.removeEventListener("orientationchange", () => {});
+      }
     };
   }, []);
 
   useEffect(() => {
-    AOS.refresh();
+    import("aos").then((AOS) => {
+      const aos = AOS.default || AOS;
+      aos.refresh();
+    });
   }, [pathname]);
 
   return null;
 }
+

@@ -75,12 +75,13 @@ export default function Header() {
               <Link key={item.label} href={item.href} className="rounded px-3 py-2 font-medium text-slate-700 hover:text-ink transition text-[15px]">{item.label}</Link>
             )
           )}
-          <Link href="/donate" className="btn ml-4 !px-6 !py-2.5 shadow-sm hover:shadow transition">Donate Now</Link>
+          <Link href="/csr-funding" className="btn ml-3 !px-5 !py-2.5 text-sm shadow-sm hover:shadow transition">CSR Funding</Link>
+          <Link href="/donate" className="btn ml-2 !px-5 !py-2.5 text-sm shadow-sm hover:shadow transition">Donate Now</Link>
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <Link href="/blog" className="rounded-md border border-[#f39c12] text-[#f39c12] hover:bg-[#f39c12] hover:text-white px-2.5 py-1 text-xs sm:text-sm font-semibold transition">Blog</Link>
-          <Link href="/donate" className="btn !px-3.5 !py-1.5 text-xs sm:text-sm">Donate</Link>
+        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
+          <Link href="/csr-funding" className="btn !px-2.5 !py-1.5 text-xs">CSR Funding</Link>
+          <Link href="/donate" className="btn !px-3 !py-1.5 text-xs">Donate</Link>
           <button
             onClick={() => setOpen(!open)}
             aria-expanded={open}
