@@ -159,14 +159,23 @@ export default function Footer() {
               </h5>
               <div className="h-[1px] w-full bg-[#f39c12] opacity-30 mt-2 mb-3.5" />
 
-              <button
-                type="button"
-                onClick={() => setModalOpen(true)}
-                className="rounded-[4px] bg-[#f39c12] hover:bg-[#d68100] text-white px-5 py-2.5 text-[15px] font-normal transition shadow-sm active:scale-95 cursor-pointer block"
-                style={{ backgroundColor: "#f39c12" }}
-              >
-                Subscribe To Get Updates
-              </button>
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  className="rounded-[4px] bg-[#f39c12] hover:bg-[#d68100] text-white px-5 py-2.5 text-[15px] font-normal transition shadow-sm active:scale-95 cursor-pointer block text-center"
+                  style={{ backgroundColor: "#f39c12" }}
+                >
+                  Subscribe To Get Updates
+                </button>
+
+                <Link
+                  href="/blog"
+                  className="rounded-[4px] border border-[#f39c12] text-[#f39c12] hover:bg-[#f39c12] hover:text-white px-5 py-2 text-[14px] font-medium transition text-center block"
+                >
+                  Explore Our Blog &rarr;
+                </Link>
+              </div>
 
               {/* Exact social icon row in pure white with exact spacing */}
               <div className="mt-4 flex items-center gap-4 text-white">

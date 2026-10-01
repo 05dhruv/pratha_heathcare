@@ -3,22 +3,22 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function MilestonesSection({ stats = [] }) {
-  // Card 1: Free Eye Surgery (log scale so small bars are visible)
+  // Card 1: Free Eye Surgery — year-wise data (2016–2026)
   const eyeBars = [
     { label: "2016", count: 200 },
     { label: "2017", count: 300 },
-    { label: "2018", count: 450},
+    { label: "2018", count: 450 },
     { label: "2019", count: 250 },
     { label: "2020", count: 300 },
     { label: "2021", count: 200 },
     { label: "2022", count: 400 },
-    { label: "2023", count: 450},
+    { label: "2023", count: 450 },
     { label: "2024", count: 550 },
     { label: "2025", count: 500 },
     { label: "2026", count: 600 },
   ];
 
-  // Card 2: Camps & Campaigns (linear scale, excludes eye surgery)
+  // Card 2: Camps & Campaigns (linear scale)
   const campBars = [
     { label: "Rural Camps", count: 325 },
     { label: "Dental Camps", count: 18 },
@@ -32,13 +32,7 @@ export default function MilestonesSection({ stats = [] }) {
     setMounted(true);
   }, []);
 
-  // Log scale so small bars are still clearly visible next to 4200
-  const logHeight = (val, bars) => {
-    const logVal = Math.log10(val + 1);
-    const maxLog = Math.max(...bars.map((b) => Math.log10(b.count + 1)));
-    return Math.round((logVal / maxLog) * 100);
-  };
-
+  const maxEye = Math.max(...eyeBars.map((b) => b.count));
   const maxCamp = Math.max(...campBars.map((b) => b.count));
 
   return (
@@ -62,7 +56,7 @@ export default function MilestonesSection({ stats = [] }) {
         </h3>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          {/* Card 1: Free Eye Surgery & Camps */}
+          {/* Card 1: Free Eye Surgery (Year-wise) */}
           <div
             className="rounded-lg bg-white p-4 sm:p-6 text-center text-slate-800 shadow-md"
             data-aos="fade-right"
@@ -71,17 +65,17 @@ export default function MilestonesSection({ stats = [] }) {
             <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-500">
               Free Eye Surgery &amp; Camps
             </h4>
-            <div className="flex h-44 items-end justify-between gap-1 sm:gap-2 border-b border-slate-200 px-1 sm:px-2 pb-2">
+            <div className="flex h-44 items-end justify-between gap-1 border-b border-slate-200 px-1 pb-2">
               {eyeBars.map((b) => (
-                <div key={b.label} className="flex flex-1 flex-col items-center gap-1.5 h-full justify-end min-w-0">
-                  <span className="text-[9px] sm:text-[10px] font-semibold text-slate-600 truncate">
-                    {b.count >= 1000 ? `${(b.count / 1000).toFixed(1)}k+` : `${b.count}`}
+                <div key={b.label} className="flex flex-1 flex-col items-center gap-1 h-full justify-end min-w-0">
+                  <span className="text-[8px] font-semibold text-slate-600 truncate">
+                    {b.count}
                   </span>
                   <div
-                    className="w-full max-w-[42px] rounded-t bg-[#f39c12] transition-all duration-1000"
-                    style={{ height: mounted ? `${logHeight(b.count, eyeBars)}%` : "4px" }}
+                    className="w-full max-w-[28px] rounded-t bg-[#f39c12] transition-all duration-1000"
+                    style={{ height: mounted ? `${Math.round((b.count / maxEye) * 100)}%` : "4px" }}
                   />
-                  <span className="text-[8px] sm:text-[9px] font-medium text-slate-500 text-center leading-tight line-clamp-2">
+                  <span className="text-[8px] font-medium text-slate-500 text-center leading-tight">
                     {b.label}
                   </span>
                 </div>
