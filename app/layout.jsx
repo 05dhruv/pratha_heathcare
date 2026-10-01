@@ -2,6 +2,7 @@ import { Oswald, Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AosProvider from "@/components/AosProvider";
 import { site } from "@/lib/site";
 
 const display = Oswald({ subsets: ["latin"], variable: "--font-display", weight: ["400", "500", "600", "700"], display: "swap" });
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <AosProvider />
         <Header />
         <main>{children}</main>
         <Footer />

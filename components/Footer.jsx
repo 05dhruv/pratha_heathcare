@@ -33,11 +33,11 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-[#2c3e50] text-white pt-10 pb-8" style={{ backgroundColor: "#2c3e50" }}>
+      <footer className="bg-[#2c3e50] text-white pt-10 pb-8 overflow-hidden" style={{ backgroundColor: "#2c3e50" }}>
         <div className="container mx-auto px-4 max-w-[1320px]">
           <div className="grid grid-cols-12 gap-8 lg:gap-10">
             {/* 1. Quick */}
-            <div className="col-span-12 sm:col-span-6 lg:col-span-2">
+            <div className="col-span-12 sm:col-span-6 lg:col-span-2" data-aos="fade-up" data-aos-delay="50">
               <h5 className="font-sans font-bold text-white text-[18px] tracking-normal mb-0">
                 Quick
               </h5>
@@ -63,11 +63,16 @@ export default function Footer() {
                     Notifications
                   </Link>
                 </li>
+                <li>
+                  <Link href="/blog" className="text-[#f39c12] hover:text-[#d68100] hover:underline transition">
+                    Blog
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* 2. Services */}
-            <div className="col-span-12 sm:col-span-6 lg:col-span-3">
+            <div className="col-span-12 sm:col-span-6 lg:col-span-3" data-aos="fade-up" data-aos-delay="150">
               <h5 className="font-sans font-bold text-white text-[18px] tracking-normal mb-0">
                 Services
               </h5>
@@ -97,7 +102,7 @@ export default function Footer() {
             </div>
 
             {/* 3. Follow on Facebook */}
-            <div className="col-span-12 sm:col-span-12 lg:col-span-4">
+            <div className="col-span-12 sm:col-span-12 lg:col-span-4" data-aos="fade-up" data-aos-delay="250">
               <h5 className="font-sans font-bold text-white text-[18px] tracking-normal mb-0">
                 Follow on Facebook
               </h5>
@@ -109,7 +114,7 @@ export default function Footer() {
                   <div className="w-[50px] h-[50px] border border-[#e5e7eb] bg-[#fbf5eb] p-1 flex items-center justify-center flex-shrink-0 rounded-[2px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/assets/img/logo/kalyanam_Karoti_logo_new_hi.webp"
+                      src="https://res.cloudinary.com/ifqavhnr/image/upload/v1790839383/ChatGPT_Image_Oct_1_2026_12_47_11_PM.png"
                       alt={site.name}
                       className="w-[40px] h-[40px] object-contain"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -117,7 +122,7 @@ export default function Footer() {
                   </div>
                   <div className="flex-1 min-w-0 pt-0.5">
                     <a
-                      href="https://www.facebook.com/prathahealthcare"
+                      href="https://www.facebook.com/prithahealthcare"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#385898] hover:underline font-bold text-[14px] leading-tight block truncate"
@@ -133,7 +138,7 @@ export default function Footer() {
 
                 <div>
                   <a
-                    href="https://www.facebook.com/prathahealthcare"
+                    href="https://www.facebook.com/prithahealthcare"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-[3px] border border-[#ccd0d5] bg-[#f5f6f7] hover:bg-[#ebedf0] px-2.5 py-1 text-[12px] font-bold text-[#4b4f56] transition"
@@ -148,7 +153,7 @@ export default function Footer() {
             </div>
 
             {/* 4. Subscribe */}
-            <div className="col-span-12 sm:col-span-12 lg:col-span-3">
+            <div className="col-span-12 sm:col-span-12 lg:col-span-3" data-aos="fade-up" data-aos-delay="350">
               <h5 className="font-sans font-bold text-white text-[18px] tracking-normal mb-0">
                 Subscribe
               </h5>
@@ -167,7 +172,7 @@ export default function Footer() {
               <div className="mt-4 flex items-center gap-4 text-white">
                 {/* Facebook */}
                 <a
-                  href="https://www.facebook.com/prathahealthcare"
+                  href="https://www.facebook.com/prithahealthcare"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-[#f39c12] transition inline-block"
@@ -180,7 +185,7 @@ export default function Footer() {
 
                 {/* Twitter / X */}
                 <a
-                  href="https://x.com/PrathaHealth"
+                  href="https://x.com/PrithaHealth"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-[#f39c12] transition inline-block"
@@ -193,7 +198,7 @@ export default function Footer() {
 
                 {/* Instagram */}
                 <a
-                  href="https://www.instagram.com/prathahealthcare/"
+                  href="https://www.instagram.com/prithahealthcare/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-[#f39c12] transition inline-block"
@@ -206,7 +211,7 @@ export default function Footer() {
 
                 {/* YouTube */}
                 <a
-                  href="https://www.youtube.com/@PrathaHealthcare"
+                  href="https://www.youtube.com/@PrithaHealthcare"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-[#f39c12] transition inline-block"
@@ -219,7 +224,7 @@ export default function Footer() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://www.linkedin.com/company/prathahealthcare/"
+                  href="https://www.linkedin.com/company/prithahealthcare/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-[#f39c12] transition inline-block"
@@ -232,7 +237,7 @@ export default function Footer() {
 
                 {/* Pinterest */}
                 <a
-                  href="https://in.pinterest.com/prathahealthcare"
+                  href="https://in.pinterest.com/prithahealthcare"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-[#f39c12] transition inline-block"
@@ -250,6 +255,7 @@ export default function Footer() {
           <div className="mt-14 flex flex-col items-center justify-between gap-3 text-[12px] text-white sm:flex-row">
             <p className="text-white text-[12px] m-0">Copyright © 2020. All rights reserved</p>
             <div className="flex flex-wrap items-center gap-6 text-[12px]">
+              <Link href="/blog" className="text-white hover:text-[#f39c12] hover:underline transition">Blog</Link>
               <Link href="/privacy" className="text-white hover:text-[#f39c12] hover:underline transition">Privacy Policy</Link>
               <Link href="/terms" className="text-white hover:text-[#f39c12] hover:underline transition">Terms of Use</Link>
               <Link href="/refund-policy" className="text-white hover:text-[#f39c12] hover:underline transition">Refund</Link>

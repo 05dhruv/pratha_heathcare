@@ -1,39 +1,194 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import Photo from "@/components/Photo";
-import { prisma } from "@/lib/prisma";
-import { safe, formatDate } from "@/lib/safe";
-import { defaultPosts } from "@/lib/site";
+import { getBlogBySlug, getRecentBlogs, blogs } from "@/data/blogs";
 
 export const dynamic = "force-dynamic";
 
-async function getPost(id) {
-  const n = Number(id);
-  if (!Number.isInteger(n)) return null;
-  const dbPost = await safe(() => prisma.post.findFirst({ where: { id: n, published: true } }), null);
-  if (dbPost) return dbPost;
-  return defaultPosts.find((p) => p.id === n) || null;
+export function generateStaticParams() {
+  return blogs.map((b) => ({ id: String(b.id) }));
 }
 
 export async function generateMetadata({ params }) {
-  const p = await getPost(params.id);
-  return p ? { title: p.title, description: p.excerpt } : {};
+  const p = getBlogBySlug(params.id);
+  return p
+    ? {
+        title: `${p.title} | Pritha Health Care`,
+        description: p.excerpt,
+      }
+    : {};
 }
 
-export default async function Post({ params }) {
-  const p = await getPost(params.id);
+export default function BlogDetailPage({ params }) {
+  const p = getBlogBySlug(params.id);
   if (!p) notFound();
+
+  const recentBlogs = getRecentBlogs(p.id, 3);
+
   return (
     <>
-      <PageBanner title="News" parent="Media" />
-      <article className="container-x max-w-3xl py-14">
-        <h1 className="font-display text-3xl font-bold leading-tight">{p.title}</h1>
-        <time className="mt-2 block text-slate-500">{formatDate(p.postedAt)}</time>
-        <Photo src={p.image} alt={p.title} className="mt-8 h-72 w-full rounded-lg md:h-96" />
-        <div className="mt-8 space-y-5 text-lg leading-relaxed text-slate-700">
-          {p.content.split(/\n\s*\n/).map((para, i) => <p key={i}>{para}</p>)}
+      <PageBanner title="News & Articles" parent="Media" />
+
+      <section className="bg-slate-50 py-12 md:py-16">
+        <div className="container-x mx-auto px-4">
+          
+          {/* Breadcrumb Navigation */}
+          <nav className="mb-6 flex items-center gap-2 text-xs text-slate-500 font-medium">
+            <Link href="/" className="hover:text-[#f39c12] transition">Home</Link>
+            <span>/</span>
+            <Link href="/blog" className="hover:text-[#f39c12] transition">Blog</Link>
+            <span>/</span>
+            <span className="text-slate-800 truncate max-w-xs">{p.title}</span>
+          </nav>
+
+          <div className="grid gap-12 lg:grid-cols-12">
+            
+            {/* Main Article Content */}
+            <article className="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
+              
+              {/* Category & Date Header */}
+              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-4">
+                <span className="rounded-full bg-[#f39c12]/15 px-3 py-1 font-bold text-[#f39c12] uppercase tracking-wider">
+                  {p.category}
+                </span>
+                <span>•</span>
+                <span>{p.date}</span>
+                <span>•</span>
+                <span>{p.readTime}</span>
+              </div>
+
+              {/* Title */}
+              <h1 className="font-display text-2xl sm:text-4xl font-bold leading-tight text-[#2c3e50]">
+                {p.title}
+              </h1>
+
+              {/* Author Info Bar */}
+              <div className="my-6 flex items-center gap-3.5 border-y border-slate-100 py-3.5">
+                <div className="h-11 w-11 rounded-full bg-[#2c3e50] text-white flex items-center justify-center font-bold text-base shadow-sm">
+                  {p.author.name.charAt(0)}
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-800 leading-tight">{p.author.name}</h4>
+                  <p className="text-xs text-slate-500 mt-0.5">{p.author.role}</p>
+                </div>
+              </div>
+
+              {/* Featured Image */}
+              <div className="relative my-8 overflow-hidden rounded-xl bg-slate-100 shadow-sm max-h-[460px]">
+                <Photo
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Lead Excerpt Callout */}
+              <div className="mb-8 rounded-xl border-l-4 border-[#f39c12] bg-[#fef9e7] p-5 text-base sm:text-lg italic text-slate-700 leading-relaxed font-body">
+                "{p.excerpt}"
+              </div>
+
+              {/* Article Paragraphs */}
+              <div className="space-y-6 text-base sm:text-lg leading-relaxed text-slate-700 font-body">
+                {p.content.split(/\n\s*\n/).map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+
+              {/* Tags Section */}
+              {p.tags && p.tags.length > 0 && (
+                <div className="mt-10 pt-6 border-t border-slate-200">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-2">Tags:</span>
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 hover:bg-[#f39c12]/20 hover:text-[#f39c12] transition"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Back to Blogs Button */}
+              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-2 text-sm font-bold text-slate-700 hover:border-[#f39c12] hover:text-[#f39c12] transition"
+                >
+                  &larr; Back to all articles
+                </Link>
+                <Link
+                  href="/donate"
+                  className="btn !px-5 !py-2 text-sm"
+                >
+                  Support This Cause &rarr;
+                </Link>
+              </div>
+
+            </article>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-4 space-y-8">
+              
+              {/* Mission Support Card */}
+              <div className="rounded-2xl bg-[#2c3e50] p-6 text-white shadow-md">
+                <span className="rounded bg-[#f39c12] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                  Get Involved
+                </span>
+                <h3 className="mt-4 font-display text-xl font-bold">
+                  Help Us Restore Smiles & Vision
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-body">
+                  Your tax-exempt contribution directly sponsors life-changing surgeries and prosthetic aids for rural patients in Moradabad.
+                </p>
+                <Link
+                  href="/donate"
+                  className="mt-5 block w-full rounded-full bg-[#f39c12] py-2.5 text-center text-sm font-bold text-white shadow hover:bg-[#d68100] transition"
+                >
+                  Donate Today &rarr;
+                </Link>
+              </div>
+
+              {/* Recent Articles Card */}
+              <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-200">
+                <h3 className="font-display text-lg font-bold text-[#2c3e50] border-b border-slate-100 pb-3">
+                  Recent Stories
+                </h3>
+                <div className="mt-4 space-y-5">
+                  {recentBlogs.map((item) => (
+                    <article key={item.id} className="flex gap-3.5 items-start group">
+                      <div className="h-16 w-16 flex-shrink-0 rounded-lg overflow-hidden bg-slate-100">
+                        <Photo
+                          src={item.image}
+                          alt={item.title}
+                          className="h-full w-full object-cover group-hover:scale-105 transition"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[10px] font-bold text-[#f39c12] uppercase tracking-wider">
+                          {item.category}
+                        </span>
+                        <h4 className="font-display text-xs sm:text-sm font-bold leading-snug text-[#2c3e50] group-hover:text-[#f39c12] transition line-clamp-2 mt-0.5">
+                          <Link href={`/blog/${item.id}`}>
+                            {item.title}
+                          </Link>
+                        </h4>
+                        <time className="text-[10px] text-slate-400 mt-1 block">{item.date}</time>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+            </aside>
+
+          </div>
+
         </div>
-      </article>
+      </section>
     </>
   );
 }

@@ -15,18 +15,24 @@ export default function About() {
   return (
     <>
       <PageBanner title="About Us" parent="About" />
-      <section className="container-x py-14">
-        <h2 className="font-display text-2xl font-bold">{site.name}</h2>
-        <div className="mt-4 max-w-3xl space-y-4 text-lg leading-relaxed text-slate-600">
-          <p>{site.name} is a national award-winning social organisation devoted to preventing and curing avoidable blindness and serving people with disabilities. It has worked in Moradabad, Uttar Pradesh since 1981, and is registered as a non-profit society under the Societies Registration Act, 1860.</p>
-          <p>Pratha Healthcare is devoted to holistic welfare, rehabilitation, and medical care for the underserved.</p>
+      <section className="container-x py-14 overflow-hidden">
+        <div data-aos="fade-up">
+          <h2 className="font-display text-2xl font-bold">{site.name}</h2>
+          <div className="mt-4 max-w-3xl space-y-4 text-lg leading-relaxed text-slate-600">
+            <p>{site.name} is a national award-winning social organisation devoted to preventing and curing avoidable blindness and serving people with disabilities. It has worked in Moradabad, Uttar Pradesh since 1981, and is registered as a non-profit society under the Societies Registration Act, 1860.</p>
+            <p>Pritha Health Care is devoted to holistic welfare, rehabilitation, and medical care for the underserved.</p>
+          </div>
         </div>
 
         <CompanyInformation />
 
         <div className="mt-12 space-y-12">
           {programs.map((p, i) => (
-            <div key={p.title} className={`grid items-center gap-8 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
+            <div
+              key={p.title}
+              data-aos={i % 2 === 0 ? "fade-right" : "fade-left"}
+              className={`grid items-center gap-8 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}
+            >
               <Photo src="" alt={p.title} className="h-64 w-full rounded-lg" />
               <div>
                 <h3 className="font-display text-xl font-semibold">{p.title}</h3>
@@ -36,12 +42,16 @@ export default function About() {
           ))}
         </div>
 
-        <h2 className="mt-16 font-display text-2xl font-bold">Objectives</h2>
-        <ul className="mt-4 max-w-3xl list-disc space-y-3 pl-5 text-slate-600">
-          {objectives.map((o) => <li key={o}>{o}</li>)}
-        </ul>
+        <div data-aos="fade-up" className="mt-16">
+          <h2 className="font-display text-2xl font-bold">Objectives</h2>
+          <ul className="mt-4 max-w-3xl list-disc space-y-3 pl-5 text-slate-600">
+            {objectives.map((o) => <li key={o}>{o}</li>)}
+          </ul>
+        </div>
 
-        <div className="mt-12"><Link href="/donate" className="btn">Donate to {site.name}</Link></div>
+        <div className="mt-12" data-aos="zoom-in">
+          <Link href="/donate" className="btn">Donate to {site.name}</Link>
+        </div>
       </section>
     </>
   );

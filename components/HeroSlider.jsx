@@ -36,10 +36,10 @@ export default function HeroSlider({ slides = [] }) {
             className="w-full h-full object-cover transition-opacity duration-700 ease-in-out"
           />
 
-          {/* Bottom Title Caption Bar (exact matching kkm.org.in .titlecaption) */}
-          <div className="absolute inset-x-0 bottom-0 bg-[#2c3e50]/80 py-3.5 px-6 backdrop-blur-[2px] transition-all">
+          {/* Bottom Title Caption Bar */}
+          <div className="absolute inset-x-0 bottom-0 bg-[#2c3e50]/85 py-2.5 sm:py-3.5 px-3 sm:px-6 backdrop-blur-[2px] transition-all">
             <div className="container-x mx-auto">
-              <h4 className="font-display text-white text-base sm:text-lg md:text-xl font-medium tracking-wide">
+              <h4 className="font-display text-white text-xs sm:text-base md:text-xl font-medium tracking-wide line-clamp-2 leading-snug">
                 {current.title}
               </h4>
             </div>
