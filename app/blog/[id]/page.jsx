@@ -3,13 +3,16 @@ import PageBanner from "@/components/PageBanner";
 import Photo from "@/components/Photo";
 import { prisma } from "@/lib/prisma";
 import { safe, formatDate } from "@/lib/safe";
+import { defaultPosts } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 async function getPost(id) {
   const n = Number(id);
   if (!Number.isInteger(n)) return null;
-  return safe(() => prisma.post.findFirst({ where: { id: n, published: true } }), null);
+  const dbPost = await safe(() => prisma.post.findFirst({ where: { id: n, published: true } }), null);
+  if (dbPost) return dbPost;
+  return defaultPosts.find((p) => p.id === n) || null;
 }
 
 export async function generateMetadata({ params }) {

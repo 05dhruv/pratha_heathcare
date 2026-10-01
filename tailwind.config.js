@@ -4,16 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#12355B",
-        deep: "#0B2340",
-        marigold: "#F2A03D",
-        leaf: "#2F7D5B",
-        mist: "#F3F6F9",
-        line: "#DDE4EB",
+        ink: "#2c3e50", // Flatly navbar/primary color
+        primary: "#2c3e50",
+        deep: "#1a252f",
+        marigold: "#f39c12", // Flatly warning/gold accent
+        warning: "#f39c12",
+        leaf: "#18bc9c",
+        mist: "#f8f9fa",
+        line: "#ecf0f1",
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
-        body: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["Oswald", "var(--font-display)", "sans-serif"],
+        body: ["Lato", "var(--font-body)", "sans-serif"],
       },
     },
   },

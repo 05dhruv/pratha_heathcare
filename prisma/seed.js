@@ -10,36 +10,51 @@ async function main() {
     ],
   });
 
-  if ((await prisma.slide.count()) === 0) {
-    await prisma.slide.createMany({
-      data: [
-        { title: "Kalyanam Karoti Eye Institute, Mathura", link: "/kalyanam-karoti-eye-institute", position: 1 },
-        { title: "Committed to help and rehabilitate specially-abled children", link: "/sambal-special-school", position: 2 },
-        { title: "Committed to help and rehabilitate the differently-abled", link: "/disability-care", position: 3 },
-        { title: "Committed to eradicate avoidable blindness", link: "/eyecare", position: 4 },
-      ],
-    });
-  }
+  await prisma.slide.deleteMany();
+  await prisma.slide.createMany({
+    data: [
+      {
+        title: "Pratha Healthcare is committed to help and rehabilitate the Specially Abled Children.",
+        image: "/admin/slider/Kalyanam_Karoti_Special_School.webp",
+        link: "/sambal-special-school",
+        position: 1,
+      },
+      {
+        title: "Pratha Healthcare is committed to help and rehabilitate the differently-abled",
+        image: "/admin/slider/Disability Care.webp",
+        link: "/disability-care",
+        position: 3,
+      },
+      {
+        title: "Pratha Healthcare Committed to Eradicate the Avoidable Blindness",
+        image: "/admin/slider/Eye Care.webp",
+        link: "/eyecare",
+        position: 4,
+      },
+    ],
+  });
 
-  if ((await prisma.post.count()) === 0) {
-    await prisma.post.createMany({
-      data: [
-        {
-          title: "22nd Free Eye Camp concludes in Kachaura",
-          excerpt: "The ending ceremony of the 22nd Free Eye Camp was organised in memory of the late Shri Mayank Sharma.",
-          content:
-            "Kalyanam Karoti, Mathura organised the ending ceremony of the 22nd Free Eye Camp on the punyatithi of the late Shri Mayank Sharma.\n\nHundreds of patients were screened, and those needing surgery were brought to the base hospital.\n\nEdit or delete this sample post from the admin panel.",
-          postedAt: new Date("2023-10-31"),
-        },
-        {
-          title: "Eye medical equipment handed over",
-          excerpt: "Modern eye machines and equipment were provided under a grant project.",
-          content: "Sample post. Replace it with your own news from /admin/posts.",
-          postedAt: new Date("2022-08-23"),
-        },
-      ],
-    });
-  }
+  await prisma.post.deleteMany();
+  await prisma.post.createMany({
+    data: [
+      {
+        title: "22nd Free Eye Camp Successfully Concludes by Pratha Healthcare, Moradabad, Courtesy of Shri Krishnalal Sharma Charitable Trust, Moradabad",
+        excerpt: "Pratha Healthcare Moradabad organised the ending ceremony of the 22nd Free Eye Camp on Punytithi of the late Shri Mayank Sharma.",
+        content:
+          "Pratha Healthcare Moradabad organised the ending ceremony of the 22nd Free Eye Camp on Punytithi of the late Shri Mayank Sharma.\n\nHundreds of patients were examined and operated upon free of cost.",
+        image: "/admin/blog/31-10-2023/Kachaura Camp.jpg",
+        postedAt: new Date("2023-10-31"),
+      },
+      {
+        title: "Embassy of Japan in India provided Eye Medical Equipment",
+        excerpt: "Modern eye machines and equipment have been provided by the Embassy of Japan under the Project for the Provision of Eye Medical Equipment",
+        content:
+          "Modern eye machines and equipment have been provided by the Embassy of Japan under the Project for the Provision of Eye Medical Equipment to Pratha Healthcare Moradabad.",
+        image: "/admin/blog/23-08-2022/Kalyanam_Karoti_The_handover_ceremony.webp",
+        postedAt: new Date("2022-08-23"),
+      },
+    ],
+  });
 
   if ((await prisma.notification.count()) === 0) {
     await prisma.notification.create({ data: { title: "Welcome: add public notices from the admin panel", link: "" } });

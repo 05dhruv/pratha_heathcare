@@ -1,4 +1,4 @@
-# Kalyanam Karoti website (Next.js + PostgreSQL)
+# Pratha Healthcare website (Next.js + PostgreSQL)
 
 Single-folder Next.js 14 (App Router, plain JSX) + Prisma + PostgreSQL + Tailwind + Framer Motion.
 Frontend, API routes and admin panel all live in this one project.
@@ -22,7 +22,7 @@ Admin panel: http://localhost:3000/admin (password = `ADMIN_PASSWORD`).
 |---|---|
 | Home (slider, programmes, counters, endeavors, news, blessings, donate banner) | `/` |
 | About, Impact, Honors, Notifications | `/about` `/impact` `/honors-and-awards` `/notifications` |
-| Services (data in `lib/site.js`) | `/eyecare` `/disability-care` `/sambal-special-school` `/outreach-services` `/physio-care` `/screening-center` `/kalyanam-karoti-eye-institute` |
+| Services (data in `lib/site.js`) | `/eyecare` `/disability-care` `/sambal-special-school` `/outreach-services` `/physio-care` `/screening-center` `/pratha-healthcare-eye-institute` |
 | News/blog, image + video gallery | `/blog` `/blog/[id]` `/image-gallery` `/video-gallery` |
 | Contact, Donate, legal pages | `/contact-us` `/donate` `/privacy` `/terms` `/refund-policy` |
 

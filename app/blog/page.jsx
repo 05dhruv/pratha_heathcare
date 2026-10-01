@@ -3,12 +3,14 @@ import PageBanner from "@/components/PageBanner";
 import Photo from "@/components/Photo";
 import { prisma } from "@/lib/prisma";
 import { safe, formatDate } from "@/lib/safe";
+import { defaultPosts } from "@/lib/site";
 
 export const metadata = { title: "News and Blog" };
 export const dynamic = "force-dynamic";
 
 export default async function Blog() {
-  const posts = await safe(() => prisma.post.findMany({ where: { published: true }, orderBy: { postedAt: "desc" } }), []);
+  const dbPosts = await safe(() => prisma.post.findMany({ where: { published: true }, orderBy: { postedAt: "desc" } }), []);
+  const posts = dbPosts && dbPosts.length > 0 ? dbPosts : defaultPosts;
   return (
     <>
       <PageBanner title="News and Blog" parent="Media" />

@@ -26,8 +26,13 @@ export default function Header() {
 
       <div className="container-x flex items-center justify-between py-3">
         <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-lg font-bold text-marigold">{site.short}</span>
-          <span className="font-display text-lg font-bold leading-tight text-deep">{site.name}</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/img/logo/KalyanamKarotiOfficialLogo.webp"
+            alt="Pratha Healthcare Logo"
+            className="h-12 w-auto object-contain md:h-14"
+            style={{ maxHeight: "56px", width: "auto" }}
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
