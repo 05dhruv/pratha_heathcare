@@ -28,10 +28,10 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/img/logo/KalyanamKarotiOfficialLogo.webp"
+            src="/pratha-logo.png"
             alt="Pratha Healthcare Logo"
-            className="h-12 w-auto object-contain md:h-14"
-            style={{ maxHeight: "56px", width: "auto" }}
+            className="h-14 w-auto object-contain md:h-16 py-1"
+            style={{ maxHeight: "65px", width: "auto" }}
           />
         </Link>
 

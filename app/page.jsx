@@ -86,22 +86,7 @@ export default async function Home() {
                 </Link>
               </div>
             </div>
-
-            {/* Outreach Services for Rural Health Development */}
-            <div className="flex gap-5 items-start">
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center text-4xl text-[#2c3e50]">
-                🚑
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-[#2c3e50]">Outreach Services for Rural Health Development</h2>
-                <p className="mt-1 text-sm text-slate-600 leading-relaxed">
-                  Mobile healthcare system delivering best NGO services for the marginalised community residing in remote villages.
-                </p>
-                <Link href="/outreach-services" className="mt-2 inline-block text-sm font-semibold text-[#f39c12] hover:underline">
-                  Learn more &rarr;
-                </Link>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -134,11 +119,6 @@ export default async function Home() {
                   alt={e.title}
                   className="h-60 w-full object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-[#2c3e50]/60 p-4 transition duration-300 group-hover:bg-[#2c3e50]/40">
-                  <h4 className="font-display text-2xl font-bold tracking-wider text-white uppercase text-center border-b-2 border-transparent group-hover:border-[#f39c12] pb-1 transition">
-                    {e.title}
-                  </h4>
-                </div>
               </Link>
             ))}
           </div>
