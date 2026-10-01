@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const presets = [500, 1000, 2500, 5000];
-const purposes = ["Eye Care", "Disability Care", "Sambal Special School", "Outreach Services", "Where needed most"];
+const purposes = ["Eye Care", "Disability Care"];
 
 export default function DonateForm() {
   const [amount, setAmount] = useState(1000);
