@@ -1,4 +1,4 @@
-# Pratha Healthcare website (Next.js + PostgreSQL)
+# Pritha Health Care website (Next.js + PostgreSQL)
 
 Single-folder Next.js 14 (App Router, plain JSX) + Prisma + PostgreSQL + Tailwind + Framer Motion.
 Frontend, API routes and admin panel all live in this one project.

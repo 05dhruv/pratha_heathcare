@@ -14,19 +14,19 @@ async function main() {
   await prisma.slide.createMany({
     data: [
       {
-        title: "Pratha Healthcare is committed to help and rehabilitate the Specially Abled Children.",
+        title: "Pritha Health Care is committed to help and rehabilitate the Specially Abled Children.",
         image: "/admin/slider/Kalyanam_Karoti_Special_School.webp",
         link: "/sambal-special-school",
         position: 1,
       },
       {
-        title: "Pratha Healthcare is committed to help and rehabilitate the differently-abled",
+        title: "Pritha Health Care is committed to help and rehabilitate the differently-abled",
         image: "/admin/slider/Disability Care.webp",
         link: "/disability-care",
         position: 3,
       },
       {
-        title: "Pratha Healthcare Committed to Eradicate the Avoidable Blindness",
+        title: "Pritha Health Care Committed to Eradicate the Avoidable Blindness",
         image: "/admin/slider/Eye Care.webp",
         link: "/eyecare",
         position: 4,
@@ -38,10 +38,10 @@ async function main() {
   await prisma.post.createMany({
     data: [
       {
-        title: "22nd Free Eye Camp Successfully Concludes by Pratha Healthcare, Moradabad, Courtesy of Shri Krishnalal Sharma Charitable Trust, Moradabad",
-        excerpt: "Pratha Healthcare Moradabad organised the ending ceremony of the 22nd Free Eye Camp on Punytithi of the late Shri Mayank Sharma.",
+        title: "22nd Free Eye Camp Successfully Concludes by Pritha Health Care, Moradabad, Courtesy of Shri Krishnalal Sharma Charitable Trust, Moradabad",
+        excerpt: "Pritha Health Care Moradabad organised the ending ceremony of the 22nd Free Eye Camp on Punytithi of the late Shri Mayank Sharma.",
         content:
-          "Pratha Healthcare Moradabad organised the ending ceremony of the 22nd Free Eye Camp on Punytithi of the late Shri Mayank Sharma.\n\nHundreds of patients were examined and operated upon free of cost.",
+          "Pritha Health Care Moradabad organised the ending ceremony of the 22nd Free Eye Camp on Punytithi of the late Shri Mayank Sharma.\n\nHundreds of patients were examined and operated upon free of cost.",
         image: "/admin/blog/31-10-2023/Kachaura Camp.jpg",
         postedAt: new Date("2023-10-31"),
       },
@@ -49,7 +49,7 @@ async function main() {
         title: "Embassy of Japan in India provided Eye Medical Equipment",
         excerpt: "Modern eye machines and equipment have been provided by the Embassy of Japan under the Project for the Provision of Eye Medical Equipment",
         content:
-          "Modern eye machines and equipment have been provided by the Embassy of Japan under the Project for the Provision of Eye Medical Equipment to Pratha Healthcare Moradabad.",
+          "Modern eye machines and equipment have been provided by the Embassy of Japan under the Project for the Provision of Eye Medical Equipment to Pritha Health Care Moradabad.",
         image: "/admin/blog/23-08-2022/Kalyanam_Karoti_The_handover_ceremony.webp",
         postedAt: new Date("2022-08-23"),
       },

@@ -20,15 +20,15 @@ export default function ServicePage({ params }) {
   return (
     <>
       <PageBanner title={s.title} parent="Our Services" />
-      <section className="container-x grid gap-10 py-14 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <section className="container-x grid gap-10 py-14 lg:grid-cols-3 overflow-hidden">
+        <div className="lg:col-span-2" data-aos="fade-right">
           <Photo src={s.image} alt={s.title} className="h-72 w-full rounded-lg md:h-96" />
           <p className="mt-8 font-display text-xl font-semibold leading-relaxed">{s.lead}</p>
           <div className="mt-4 space-y-4 text-lg leading-relaxed text-slate-600">
             {s.body.map((p) => <p key={p}>{p}</p>)}
           </div>
         </div>
-        <aside className="h-fit rounded-lg border border-line p-6">
+        <aside className="h-fit rounded-lg border border-line p-6" data-aos="fade-left">
           <h2 className="font-display text-lg font-semibold">What we provide</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-600">
             {s.points.map((p) => <li key={p}>{p}</li>)}

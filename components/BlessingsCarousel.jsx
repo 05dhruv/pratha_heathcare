@@ -4,25 +4,40 @@ import { blessings } from "@/lib/site";
 
 export default function BlessingsCarousel() {
   const [index, setIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  useEffect(() => {
+    function updateVisible() {
+      if (window.innerWidth < 640) setVisibleCount(1);
+      else if (window.innerWidth < 768) setVisibleCount(2);
+      else if (window.innerWidth < 1024) setVisibleCount(3);
+      else setVisibleCount(4);
+    }
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+    return () => window.removeEventListener("resize", updateVisible);
+  }, []);
+
+  const maxIndex = Math.max(0, blessings.length - visibleCount);
 
   const prev = () => {
-    setIndex((prev) => (prev === 0 ? blessings.length - 4 : prev - 1));
+    setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
   const next = () => {
-    setIndex((prev) => (prev >= blessings.length - 4 ? 0 : prev + 1));
+    setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev >= blessings.length - 4 ? 0 : prev + 1));
+      setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [maxIndex]);
 
   return (
-    <section className="bg-slate-50 py-12 border-t border-slate-200">
-      <div className="container-x mx-auto px-4">
+    <section className="bg-slate-50 py-12 border-t border-slate-200 overflow-hidden">
+      <div className="container-x mx-auto px-4" data-aos="fade-up">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-slate-800 md:text-3xl">
@@ -50,8 +65,8 @@ export default function BlessingsCarousel() {
 
         <div className="relative overflow-hidden">
           <div
-            className="flex transition-transform duration-500 ease-in-out gap-4"
-            style={{ transform: `translateX(-${index * (100 / 4)}%)` }}
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${index * (100 / visibleCount)}%)` }}
           >
             {blessings.map((b, i) => (
               <div key={i} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 px-2">

@@ -26,21 +26,21 @@ export default async function Home() {
       <HeroSlider slides={slides} />
 
       {/* 2. About & Services Section */}
-      <section id="about-section2" className="py-14 bg-white">
+      <section id="about-section2" className="py-14 bg-white overflow-hidden">
         <div className="container-x mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto" data-aos="fade-up">
             <h1 className="font-display text-4xl font-bold tracking-wide text-[#2c3e50] md:text-5xl uppercase">
-              Pratha Healthcare
+              Pritha Health Care
             </h1>
             <p className="mt-4 text-base md:text-lg leading-relaxed text-slate-700 font-body">
-              Pratha Healthcare is one of the most trusted NGOs in India situated in Moradabad district of Uttar Pradesh. This is a National Awarded top charity organisation devoted for improving the ‘quality of life’ of the marginalised through its services in the domains of:
+              Pritha Health Care is one of the most trusted NGOs in India situated in Moradabad district of Uttar Pradesh. This is a National Awarded top charity organisation devoted for improving the ‘quality of life’ of the marginalised through its services in the domains of:
             </p>
           </div>
-          <hr className="my-10 border-slate-200" />
+          <hr className="my-10 border-slate-200" data-aos="fade-in" />
 
           <div className="grid gap-8 md:grid-cols-2">
             {/* Eye Care */}
-            <div className="flex gap-5 items-start">
+            <div className="flex gap-5 items-start" data-aos="fade-up" data-aos-delay="100">
               <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center text-4xl text-[#2c3e50]">
                 👁️
               </div>
@@ -56,7 +56,7 @@ export default async function Home() {
             </div>
 
             {/* Rehabilitation of the Disabled */}
-            <div className="flex gap-5 items-start">
+            <div className="flex gap-5 items-start" data-aos="fade-up" data-aos-delay="200">
               <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center text-4xl text-[#2c3e50]">
                 ♿
               </div>
@@ -72,7 +72,7 @@ export default async function Home() {
             </div>
 
             {/* Education for Children with Special Needs (CWSN) */}
-            <div className="flex gap-5 items-start">
+            <div className="flex gap-5 items-start" data-aos="fade-up" data-aos-delay="300">
               <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center text-4xl text-[#2c3e50]">
                 🧒
               </div>
@@ -88,7 +88,7 @@ export default async function Home() {
             </div>
 
             {/* Outreach Services for Rural Health Development */}
-            <div className="flex gap-5 items-start">
+            <div className="flex gap-5 items-start" data-aos="fade-up" data-aos-delay="400">
               <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center text-4xl text-[#2c3e50]">
                 🚑
               </div>
@@ -110,23 +110,25 @@ export default async function Home() {
       <MilestonesSection stats={stats} />
 
       {/* 4. Our Endeavors */}
-      <section id="project-section4" className="py-16 bg-white">
+      <section id="project-section4" className="py-16 bg-white overflow-hidden">
         <div className="container-x mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto" data-aos="fade-up">
             <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-[#2c3e50] md:text-4xl">
               OUR ENDEAVORS
             </h2>
             <h3 className="mt-3 text-base md:text-lg text-slate-600 font-body">
-              Pratha Healthcare is the Best charity organisation in Moradabad operates in diverse thematic domains transforming the life of the marginalized people.
+              Pritha Health Care is the Best charity organisation in Moradabad operates in diverse thematic domains transforming the life of the marginalized people.
             </h3>
             <div className="mx-auto mt-4 h-1.5 w-32 bg-[#f39c12]" />
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {endeavors.map((e) => (
+            {endeavors.map((e, idx) => (
               <Link
                 key={e.title}
                 href={e.href}
+                data-aos="zoom-in"
+                data-aos-delay={(idx % 3) * 150}
                 className="group relative block overflow-hidden rounded-lg shadow-sm hover:shadow-md transition"
               >
                 <Photo
@@ -146,9 +148,9 @@ export default async function Home() {
       </section>
 
       {/* 5. Activities (News / Blogs) */}
-      <section className="bg-slate-50 py-16 border-t border-slate-200">
+      <section className="bg-slate-50 py-16 border-t border-slate-200 overflow-hidden">
         <div className="container-x mx-auto px-4">
-          <div className="mb-10">
+          <div className="mb-10" data-aos="fade-up">
             <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-[#2c3e50]">
               Activities
             </h2>
@@ -159,13 +161,18 @@ export default async function Home() {
             <p className="text-slate-600">No posts yet.</p>
           ) : (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p) => {
+              {posts.map((p, idx) => {
                 const dateObj = new Date(p.postedAt);
                 const day = dateObj.getDate();
                 const monthYear = dateObj.toLocaleDateString("en-IN", { month: "short", year: "2-digit" });
 
                 return (
-                  <article key={p.id} className="relative overflow-hidden rounded-lg bg-white shadow hover:shadow-md transition flex flex-col">
+                  <article
+                    key={p.id}
+                    data-aos="fade-up"
+                    data-aos-delay={(idx % 3) * 150}
+                    className="relative overflow-hidden rounded-lg bg-white shadow hover:shadow-md transition flex flex-col"
+                  >
                     <div className="absolute top-3 left-3 z-10 rounded bg-[#2c3e50] px-3 py-1.5 text-center text-white shadow">
                       <h3 className="text-xl font-bold leading-none">{day}</h3>
                       <span className="text-[10px] font-bold uppercase tracking-wider">{monthYear}</span>
