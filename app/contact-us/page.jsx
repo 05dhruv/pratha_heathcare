@@ -18,6 +18,7 @@ export default function Contact() {
           <p className="mt-3 text-slate-600">{site.address}</p>
           <p className="mt-3"><a className="text-ink underline" href={`mailto:${site.email}`}>{site.email}</a></p>
           <p><a className="text-ink underline" href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a></p>
+          <p><a className="text-ink underline" href={`https://wa.me/${(site.phone2 || "917900351111").replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer">{site.whatsappDisplay || "+91 79003 51111 (Whatsapp)"}</a></p>
         </aside>
       </section>
     </>

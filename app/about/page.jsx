@@ -19,7 +19,7 @@ export default function About() {
         <div data-aos="fade-up">
           <h2 className="font-display text-2xl font-bold">{site.name}</h2>
           <div className="mt-4 max-w-3xl space-y-4 text-lg leading-relaxed text-slate-600">
-            <p>{site.name} is a national award-winning social organisation devoted to preventing and curing avoidable blindness and serving people with disabilities. It has worked in Moradabad, Uttar Pradesh since 1981, and is registered as a non-profit society under the Societies Registration Act, 1860.</p>
+            <p>{site.name} is a national award-winning social organisation devoted to preventing and curing avoidable blindness and serving people with disabilities. It has worked in Moradabad, Uttar Pradesh since 2016, and is registered as a non-profit society under the Societies Registration Act, 1860.</p>
             <p>Pritha Health Care is devoted to holistic welfare, rehabilitation, and medical care for the underserved.</p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import Counter from "./Counter";
 
 export default function MilestonesSection({ stats = [] }) {
   const cataractBars = [
-    { period: "1981-1990", count: 16520 },
+    { period: "2016-1990", count: 16520 },
     { period: "1991-2000", count: 38940 },
     { period: "2001-2010", count: 45310 },
     { period: "2011-2020", count: 92680 },
@@ -40,7 +40,7 @@ export default function MilestonesSection({ stats = [] }) {
           Milestones Achieved
         </h2>
         <h3 className="mx-auto mt-4 max-w-4xl text-center text-lg leading-relaxed text-[#f39c12] md:text-xl font-body" data-aos="fade-up" data-aos-delay="100">
-          Since 1981, Pritha Health Care has been fighting to protect vision and helping people with disabilities. As the top charity organisation in Moradabad, it has been transforming the lives of the marginalised communities to better, independent, happy, dignified and self-reliant.
+          Since 2016, Pritha Health Care has been fighting to protect vision and helping people with disabilities. As the top charity organisation in Moradabad, it has been transforming the lives of the marginalised communities to better, independent, happy, dignified and self-reliant.
         </h3>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">

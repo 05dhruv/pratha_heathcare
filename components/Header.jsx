@@ -10,28 +10,39 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white shadow-sm">
       {/* Top bar: Left Phone, Right Email (single line on all screens, mobile responsive) */}
-      <div className="bg-deep text-[11px] sm:text-xs text-white/95 border-b border-white/10">
-        <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between py-1.5 whitespace-nowrap">
-          {/* Left: Phone */}
-          <a
-            href={`tel:${site.phone.replace(/\s/g, "")}`}
-            className="flex items-center gap-1.5 hover:text-marigold transition font-medium flex-shrink-0"
-          >
-            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current text-[#f39c12] flex-shrink-0" viewBox="0 0 24 24">
-              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            <span>{site.phone}</span>
-          </a>
+      <div className="bg-deep text-xs sm:text-[13.5px] md:text-sm text-white border-b border-white/10 shadow-inner">
+        <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between py-2.5 sm:py-3 whitespace-nowrap overflow-x-auto no-scrollbar sm:overflow-visible gap-3 sm:gap-6">
+          {/* Left: Phones */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <a
+              href={`tel:${site.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#f39c12] transition font-medium flex-shrink-0"
+            >
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-[#f39c12] flex-shrink-0" viewBox="0 0 24 24">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <span>{site.phone}</span>
+            </a>
+
+            <span className="text-white/40 font-light select-none text-xs sm:text-sm">|</span>
+
+            <a
+              href={`tel:${(site.phone2 || "+91 79003 51111").replace(/\s/g, "")}`}
+              className="hover:text-[#f39c12] transition font-medium flex-shrink-0"
+            >
+              <span>{site.phone2 || "+91 79003 51111"}</span>
+            </a>
+          </div>
 
           {/* Right: Email */}
           <a
             href={`mailto:${site.email}`}
-            className="flex items-center gap-1.5 hover:text-marigold transition font-medium flex-shrink-0"
+            className="flex items-center gap-1.5 sm:gap-2 hover:text-[#f39c12] transition font-medium flex-shrink-0"
           >
-            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current text-[#f39c12] flex-shrink-0" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-[#f39c12] flex-shrink-0" viewBox="0 0 24 24">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
-            <span className="max-w-[170px] sm:max-w-none truncate">{site.email}</span>
+            <span className="truncate">{site.email}</span>
           </a>
         </div>
       </div>
@@ -68,6 +79,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <Link href="/blog" className="rounded-md border border-[#f39c12] text-[#f39c12] hover:bg-[#f39c12] hover:text-white px-2.5 py-1 text-xs sm:text-sm font-semibold transition">Blog</Link>
           <Link href="/donate" className="btn !px-3.5 !py-1.5 text-xs sm:text-sm">Donate</Link>
           <button
             onClick={() => setOpen(!open)}
