@@ -2,18 +2,53 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 
+function useInView({ threshold = 0.1, rootMargin = "0px 0px -20px 0px" } = {}) {
+  const ref = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Check if already in viewport on mount (e.g. mobile reload or above fold)
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsInView(true);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold, rootMargin }
+    );
+
+    observer.observe(el);
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, [threshold, rootMargin]);
+
+  return [ref, isInView];
+}
+
 function AnimatedCounter({ value, isVisible, duration = 1800 }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible) {
+      setCount(0);
+      return;
+    }
     let startTime = null;
     let frameId;
 
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      // easeOutCubic curve for realistic deceleration
+      // easeOutCubic curve for smooth realistic deceleration
       const ease = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(ease * value));
 
@@ -56,36 +91,15 @@ export default function MilestonesSection({ stats = [] }) {
     { label: "Health Check-up", count: 16 },
   ];
 
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    observer.observe(el);
-
-    return () => {
-      if (el) observer.unobserve(el);
-    };
-  }, []);
+  // Independent in-view observers for each card so on mobile each card animates right when scrolled to!
+  const [card1Ref, card1Visible] = useInView({ threshold: 0.1 });
+  const [card2Ref, card2Visible] = useInView({ threshold: 0.1 });
 
   const maxEye = Math.max(...eyeBars.map((b) => b.count));
   const maxCamp = Math.max(...campBars.map((b) => b.count));
 
   return (
     <section
-      ref={sectionRef}
       id="statics-section3"
       className="bg-[#122336] py-16 text-white overflow-hidden border-y border-white/10"
     >
@@ -110,6 +124,7 @@ export default function MilestonesSection({ stats = [] }) {
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           {/* Card 1: Free Eye Surgery (Year-wise) */}
           <div
+            ref={card1Ref}
             className="rounded-xl bg-white p-4 sm:p-7 text-center text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between"
             data-aos="fade-right"
             data-aos-delay="200"
@@ -118,10 +133,10 @@ export default function MilestonesSection({ stats = [] }) {
               <h4 className="mb-5 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">
                 Free Eye Surgery &amp; Camps
               </h4>
-              <div className="flex h-48 items-end justify-between gap-1 sm:gap-1.5 border-b border-slate-200 px-1 pb-2">
+              <div className="flex h-44 sm:h-48 items-end justify-between gap-1 sm:gap-1.5 border-b border-slate-200 px-1 pb-2">
                 {eyeBars.map((b, idx) => {
                   const targetHeight = Math.round((b.count / maxEye) * 100);
-                  const delayMs = idx * 60 + 150;
+                  const delayMs = idx * 50 + 100;
                   return (
                     <div
                       key={b.label}
@@ -129,21 +144,21 @@ export default function MilestonesSection({ stats = [] }) {
                     >
                       {/* Count label above bar */}
                       <span
-                        className="text-[9px] sm:text-[10px] font-bold text-slate-700 truncate transition-all duration-700"
+                        className="text-[8px] sm:text-[10px] font-bold text-slate-700 truncate transition-all duration-700"
                         style={{
-                          opacity: isVisible ? 1 : 0,
-                          transform: isVisible ? "translateY(0)" : "translateY(6px)",
-                          transitionDelay: `${delayMs + 300}ms`,
+                          opacity: card1Visible ? 1 : 0,
+                          transform: card1Visible ? "translateY(0)" : "translateY(6px)",
+                          transitionDelay: `${delayMs + 250}ms`,
                         }}
                       >
                         {b.count}
                       </span>
                       {/* Animated bottom-to-up bar */}
                       <div
-                        className="w-full max-w-[28px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110"
+                        className="w-full max-w-[28px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110 will-change-[height]"
                         style={{
-                          height: isVisible ? `${targetHeight}%` : "0%",
-                          transition: `height 900ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+                          height: card1Visible ? `${targetHeight}%` : "0%",
+                          transition: `height 850ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
                         }}
                       />
                       {/* Year label below bar */}
@@ -157,9 +172,9 @@ export default function MilestonesSection({ stats = [] }) {
             </div>
 
             {/* Bottom Number Counter */}
-            <div className="mt-7 pt-4 border-t border-slate-100">
+            <div className="mt-6 sm:mt-7 pt-4 border-t border-slate-100">
               <p className="font-display text-4xl sm:text-5xl font-extrabold text-[#dc2626] tracking-tight">
-                <AnimatedCounter value={4200} isVisible={isVisible} duration={2000} />
+                <AnimatedCounter value={4200} isVisible={card1Visible} duration={1800} />
               </p>
               <span className="mt-1 block text-sm sm:text-base font-bold text-slate-700">
                 Free Eye Surgeries
@@ -169,6 +184,7 @@ export default function MilestonesSection({ stats = [] }) {
 
           {/* Card 2: Camps & Campaigns Conducted */}
           <div
+            ref={card2Ref}
             className="rounded-xl bg-white p-4 sm:p-7 text-center text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between"
             data-aos="fade-left"
             data-aos-delay="200"
@@ -177,10 +193,10 @@ export default function MilestonesSection({ stats = [] }) {
               <h4 className="mb-5 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">
                 Camps &amp; Campaigns Conducted
               </h4>
-              <div className="flex h-48 items-end justify-between gap-1 sm:gap-3 border-b border-slate-200 px-1 sm:px-3 pb-2">
+              <div className="flex h-44 sm:h-48 items-end justify-between gap-1 sm:gap-3 border-b border-slate-200 px-1 sm:px-3 pb-2">
                 {campBars.map((b, idx) => {
                   const targetHeight = Math.round((b.count / maxCamp) * 100);
-                  const delayMs = idx * 100 + 200;
+                  const delayMs = idx * 80 + 100;
                   return (
                     <div
                       key={b.label}
@@ -188,21 +204,21 @@ export default function MilestonesSection({ stats = [] }) {
                     >
                       {/* Count label above bar */}
                       <span
-                        className="text-[11px] sm:text-xs font-bold text-slate-700 truncate transition-all duration-700"
+                        className="text-[10px] sm:text-xs font-bold text-slate-700 truncate transition-all duration-700"
                         style={{
-                          opacity: isVisible ? 1 : 0,
-                          transform: isVisible ? "translateY(0)" : "translateY(6px)",
-                          transitionDelay: `${delayMs + 300}ms`,
+                          opacity: card2Visible ? 1 : 0,
+                          transform: card2Visible ? "translateY(0)" : "translateY(6px)",
+                          transitionDelay: `${delayMs + 250}ms`,
                         }}
                       >
                         {b.count}
                       </span>
                       {/* Animated bottom-to-up bar */}
                       <div
-                        className="w-full max-w-[44px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110"
+                        className="w-full max-w-[44px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110 will-change-[height]"
                         style={{
-                          height: isVisible ? `${targetHeight}%` : "0%",
-                          transition: `height 1000ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+                          height: card2Visible ? `${targetHeight}%` : "0%",
+                          transition: `height 900ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
                         }}
                       />
                       {/* Camp type label below bar */}
@@ -219,9 +235,9 @@ export default function MilestonesSection({ stats = [] }) {
             </div>
 
             {/* Bottom Number Counter */}
-            <div className="mt-7 pt-4 border-t border-slate-100">
+            <div className="mt-6 sm:mt-7 pt-4 border-t border-slate-100">
               <p className="font-display text-4xl sm:text-5xl font-extrabold text-[#dc2626] tracking-tight">
-                <AnimatedCounter value={465} isVisible={isVisible} duration={2000} />
+                <AnimatedCounter value={465} isVisible={card2Visible} duration={1800} />
               </p>
               <span className="mt-1 block text-sm sm:text-base font-bold text-slate-700">
                 Camps &amp; Campaigns
