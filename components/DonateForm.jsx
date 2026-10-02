@@ -37,7 +37,7 @@ export default function DonateForm() {
         <div className="flex flex-wrap gap-2">
           {presets.map((p) => (
             <button type="button" key={p} onClick={() => setAmount(p)} aria-pressed={amount === p}
-              className={`rounded-md border px-4 py-2 font-semibold ${amount === p ? "border-ink bg-ink text-white" : "border-line bg-white"}`}>
+              className={`rounded-md border px-4 py-2 font-semibold transition ${amount === p ? "border-[#dc2626] bg-[#dc2626] text-white shadow-sm" : "border-slate-200 bg-white hover:border-[#dc2626] hover:text-[#dc2626]"}`}>
               ₹{p.toLocaleString("en-IN")}
             </button>
           ))}

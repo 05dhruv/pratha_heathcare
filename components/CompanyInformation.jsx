@@ -5,7 +5,7 @@ export default function CompanyInformation() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="mt-14 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <div data-aos="fade-up" className="mt-14 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       {/* Accordion Header */}
       <button
         onClick={() => setIsOpen(!isOpen)}

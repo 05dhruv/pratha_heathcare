@@ -43,7 +43,7 @@ export default function BlessingsCarousel() {
             <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-slate-800 md:text-3xl">
               Blessings & Support
             </h2>
-            <hr className="mt-2 h-1 w-20 bg-[#f39c12] border-0" />
+            <hr className="mt-2 h-1 w-20 bg-[#dc2626] border-0" />
           </div>
           <div className="flex gap-2">
             <button

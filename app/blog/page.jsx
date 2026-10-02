@@ -32,10 +32,10 @@ export default function BlogPage() {
           
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-3xl mx-auto mb-10" data-aos="fade-up">
-            <span className="inline-block px-3 py-1 bg-[#f39c12]/15 text-[#f39c12] text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+            <span className="inline-block px-3 py-1 bg-[#dc2626]/10 text-[#dc2626] text-xs font-bold uppercase tracking-wider rounded-full mb-3">
               Insights & Field Stories
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-[#2c3e50] tracking-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-[#122336] tracking-tight">
               Stories of Hope & Healing
             </h1>
             <p className="mt-3 text-base md:text-lg text-slate-600 font-body leading-relaxed">
@@ -52,7 +52,7 @@ export default function BlogPage() {
                 placeholder="Search articles, topics, or keywords..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-slate-300 bg-white py-2.5 pl-11 pr-4 text-sm text-slate-700 shadow-sm focus:border-[#f39c12] focus:outline-none focus:ring-2 focus:ring-[#f39c12]/20 transition"
+                className="w-full rounded-full border border-slate-300 bg-white py-2.5 pl-11 pr-4 text-sm text-slate-700 shadow-sm focus:border-[#dc2626] focus:outline-none focus:ring-2 focus:ring-[#dc2626]/20 transition"
               />
               <svg
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"
@@ -77,8 +77,8 @@ export default function BlogPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`rounded-full px-4 py-1.5 text-xs font-semibold transition cursor-pointer ${
                     selectedCategory === cat
-                      ? "bg-[#2c3e50] text-white shadow"
-                      : "bg-white text-slate-600 border border-slate-200 hover:border-[#f39c12] hover:text-[#f39c12]"
+                      ? "bg-[#dc2626] text-white shadow"
+                      : "bg-white text-slate-600 border border-slate-200 hover:border-[#dc2626] hover:text-[#dc2626]"
                   }`}
                 >
                   {cat}
@@ -97,20 +97,20 @@ export default function BlogPage() {
                     alt={featuredBlog.title}
                     className="h-full w-full object-cover transition duration-700 hover:scale-105"
                   />
-                  <span className="absolute top-4 left-4 rounded-full bg-[#f39c12] px-3 py-1 text-xs font-bold text-white uppercase tracking-wider shadow">
+                  <span className="absolute top-4 left-4 rounded-full bg-[#dc2626] px-3 py-1 text-xs font-bold text-white uppercase tracking-wider shadow">
                     Featured Story
                   </span>
                 </div>
                 <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between h-full">
                   <div>
                     <div className="flex items-center gap-3 text-xs text-slate-500 mb-2">
-                      <span className="font-semibold text-[#f39c12]">{featuredBlog.category}</span>
+                      <span className="font-semibold text-[#dc2626]">{featuredBlog.category}</span>
                       <span>•</span>
                       <span>{featuredBlog.readTime}</span>
                       <span>•</span>
                       <span>{featuredBlog.date}</span>
                     </div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-bold leading-snug text-[#2c3e50] hover:text-[#f39c12] transition">
+                    <h2 className="font-display text-2xl sm:text-3xl font-bold leading-snug text-[#122336] hover:text-[#dc2626] transition">
                       <Link href={`/blog/${featuredBlog.id}`}>
                         {featuredBlog.title}
                       </Link>
@@ -122,7 +122,7 @@ export default function BlogPage() {
 
                   <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-full bg-[#2c3e50] text-white flex items-center justify-center font-bold text-sm">
+                      <div className="h-9 w-9 rounded-full bg-[#122336] text-white flex items-center justify-center font-bold text-sm">
                         {featuredBlog.author.name.charAt(0)}
                       </div>
                       <div>
@@ -132,7 +132,7 @@ export default function BlogPage() {
                     </div>
                     <Link
                       href={`/blog/${featuredBlog.id}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#f39c12] hover:text-[#d68100] transition group"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#dc2626] hover:text-[#b91c1c] transition group"
                     >
                       Read Story
                       <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
@@ -153,7 +153,7 @@ export default function BlogPage() {
               </p>
               <button
                 onClick={() => { setSelectedCategory("All"); setSearchQuery(""); }}
-                className="mt-4 rounded-full bg-[#f39c12] px-4 py-2 text-xs font-bold text-white hover:bg-[#d68100] transition"
+                className="mt-4 rounded-full bg-[#dc2626] px-4 py-2 text-xs font-bold text-white hover:bg-[#b91c1c] transition"
               >
                 Reset Filters
               </button>
@@ -175,7 +175,7 @@ export default function BlogPage() {
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 flex gap-2">
-                      <span className="rounded bg-[#2c3e50]/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow backdrop-blur-sm">
+                      <span className="rounded bg-[#122336]/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow backdrop-blur-sm">
                         {b.category}
                       </span>
                     </div>
@@ -192,7 +192,7 @@ export default function BlogPage() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-display text-lg font-bold leading-snug text-[#2c3e50] group-hover:text-[#f39c12] transition line-clamp-2">
+                      <h3 className="font-display text-lg font-bold leading-snug text-[#122336] group-hover:text-[#dc2626] transition line-clamp-2">
                         <Link href={`/blog/${b.id}`}>
                           {b.title}
                         </Link>
@@ -207,14 +207,14 @@ export default function BlogPage() {
                     {/* Author & Read More Link */}
                     <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
                       <div className="flex items-center gap-2 min-w-0">
-                        <div className="h-7 w-7 rounded-full bg-[#f39c12]/20 text-[#f39c12] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        <div className="h-7 w-7 rounded-full bg-[#dc2626]/10 text-[#dc2626] flex items-center justify-center font-bold text-xs flex-shrink-0">
                           {b.author.name.charAt(0)}
                         </div>
                         <span className="text-xs text-slate-600 truncate">{b.author.name}</span>
                       </div>
                       <Link
                         href={`/blog/${b.id}`}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#f39c12] hover:text-[#d68100] transition group-hover:underline flex-shrink-0"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#dc2626] hover:text-[#b91c1c] transition group-hover:underline flex-shrink-0"
                       >
                         Read more
                         <span>&rarr;</span>
@@ -228,14 +228,14 @@ export default function BlogPage() {
 
           {/* Bottom Donate Banner */}
           <div
-            className="mt-16 rounded-2xl bg-gradient-to-r from-[#2c3e50] to-[#1a252f] p-8 md:p-12 text-center text-white shadow-lg"
+            className="mt-16 rounded-2xl bg-gradient-to-r from-[#122336] to-[#1e3a5f] p-8 md:p-12 text-center text-white shadow-lg"
             data-aos="fade-up"
           >
             <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-wider">
               Want to support our healthcare missions?
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base text-slate-300 font-body leading-relaxed">
-              Every donation funds life-changing eye surgeries, prosthetics, and special education for families in need.
+              Every donation funds life-changing eye surgeries, prosthetics, and mobile healthcare clinics for families in need.
             </p>
             <div className="mt-6">
               <Link href="/donate" className="btn !px-8 !py-3 text-base shadow-md hover:scale-105 transition">

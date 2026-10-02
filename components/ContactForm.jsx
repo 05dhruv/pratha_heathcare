@@ -32,7 +32,7 @@ export default function ContactForm() {
         <div><label className="label" htmlFor="c-subject">Subject</label><input id="c-subject" name="subject" className="field" /></div>
       </div>
       <div><label className="label" htmlFor="c-body">Message</label><textarea id="c-body" name="body" rows={5} required className="field" /></div>
-      <button className="btn-dark" disabled={state.status === "loading"}>{state.status === "loading" ? "Sending..." : "Send message"}</button>
+      <button className="btn" disabled={state.status === "loading"}>{state.status === "loading" ? "Sending..." : "Send message"}</button>
       {state.msg && <p role="status" className={state.status === "ok" ? "text-green-700" : "text-red-700"}>{state.msg}</p>}
     </form>
   );

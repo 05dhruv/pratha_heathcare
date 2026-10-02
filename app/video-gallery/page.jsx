@@ -14,8 +14,8 @@ export default async function VideoGallery() {
       <section className="container-x py-14">
         {videos.length === 0 ? <p className="text-slate-600">No videos yet. Add YouTube links from the admin panel.</p> : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {videos.map((v) => (
-              <figure key={v.id}>
+            {videos.map((v, idx) => (
+              <figure key={v.id} data-aos="fade-up" data-aos-delay={(idx % 3) * 150}>
                 <div className="aspect-video overflow-hidden rounded-lg bg-black">
                   <iframe
                     className="h-full w-full"

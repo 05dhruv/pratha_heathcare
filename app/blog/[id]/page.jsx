@@ -30,14 +30,14 @@ export default function BlogDetailPage({ params }) {
     <>
       <PageBanner title="News & Articles" parent="Media" />
 
-      <section className="bg-slate-50 py-12 md:py-16">
+      <section className="bg-slate-50 py-12 md:py-16 overflow-hidden">
         <div className="container-x mx-auto px-4">
           
           {/* Breadcrumb Navigation */}
-          <nav className="mb-6 flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link href="/" className="hover:text-[#f39c12] transition">Home</Link>
+          <nav className="mb-6 flex items-center gap-2 text-xs text-slate-500 font-medium" data-aos="fade-up">
+            <Link href="/" className="hover:text-[#dc2626] transition">Home</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-[#f39c12] transition">Blog</Link>
+            <Link href="/blog" className="hover:text-[#dc2626] transition">Blog</Link>
             <span>/</span>
             <span className="text-slate-800 truncate max-w-xs">{p.title}</span>
           </nav>
@@ -45,11 +45,11 @@ export default function BlogDetailPage({ params }) {
           <div className="grid gap-12 lg:grid-cols-12">
             
             {/* Main Article Content */}
-            <article className="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
+            <article data-aos="fade-up" className="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
               
               {/* Category & Date Header */}
               <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-4">
-                <span className="rounded-full bg-[#f39c12]/15 px-3 py-1 font-bold text-[#f39c12] uppercase tracking-wider">
+                <span className="rounded-full bg-[#dc2626]/10 px-3 py-1 font-bold text-[#dc2626] uppercase tracking-wider">
                   {p.category}
                 </span>
                 <span>•</span>
@@ -59,13 +59,13 @@ export default function BlogDetailPage({ params }) {
               </div>
 
               {/* Title */}
-              <h1 className="font-display text-2xl sm:text-4xl font-bold leading-tight text-[#2c3e50]">
+              <h1 className="font-display text-2xl sm:text-4xl font-bold leading-tight text-[#122336]">
                 {p.title}
               </h1>
 
               {/* Author Info Bar */}
               <div className="my-6 flex items-center gap-3.5 border-y border-slate-100 py-3.5">
-                <div className="h-11 w-11 rounded-full bg-[#2c3e50] text-white flex items-center justify-center font-bold text-base shadow-sm">
+                <div className="h-11 w-11 rounded-full bg-[#122336] text-white flex items-center justify-center font-bold text-base shadow-sm">
                   {p.author.name.charAt(0)}
                 </div>
                 <div>
@@ -84,7 +84,7 @@ export default function BlogDetailPage({ params }) {
               </div>
 
               {/* Lead Excerpt Callout */}
-              <div className="mb-8 rounded-xl border-l-4 border-[#f39c12] bg-[#fef9e7] p-5 text-base sm:text-lg italic text-slate-700 leading-relaxed font-body">
+              <div className="mb-8 rounded-xl border-l-4 border-[#dc2626] bg-[#fef2f2] p-5 text-base sm:text-lg italic text-slate-700 leading-relaxed font-body">
                 "{p.excerpt}"
               </div>
 
@@ -103,7 +103,7 @@ export default function BlogDetailPage({ params }) {
                     {p.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 hover:bg-[#f39c12]/20 hover:text-[#f39c12] transition"
+                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 hover:bg-[#dc2626]/10 hover:text-[#dc2626] transition"
                       >
                         #{tag}
                       </span>
@@ -116,7 +116,7 @@ export default function BlogDetailPage({ params }) {
               <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
                 <Link
                   href="/blog"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-2 text-sm font-bold text-slate-700 hover:border-[#f39c12] hover:text-[#f39c12] transition"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-2 text-sm font-bold text-slate-700 hover:border-[#dc2626] hover:text-[#dc2626] transition"
                 >
                   &larr; Back to all articles
                 </Link>
@@ -131,11 +131,11 @@ export default function BlogDetailPage({ params }) {
             </article>
 
             {/* Sidebar */}
-            <aside className="lg:col-span-4 space-y-8">
+            <aside data-aos="fade-left" className="lg:col-span-4 space-y-8">
               
               {/* Mission Support Card */}
-              <div className="rounded-2xl bg-[#2c3e50] p-6 text-white shadow-md">
-                <span className="rounded bg-[#f39c12] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+              <div className="rounded-2xl bg-[#122336] p-6 text-white shadow-md">
+                <span className="rounded bg-[#dc2626] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
                   Get Involved
                 </span>
                 <h3 className="mt-4 font-display text-xl font-bold">
@@ -146,7 +146,7 @@ export default function BlogDetailPage({ params }) {
                 </p>
                 <Link
                   href="/donate"
-                  className="mt-5 block w-full rounded-full bg-[#f39c12] py-2.5 text-center text-sm font-bold text-white shadow hover:bg-[#d68100] transition"
+                  className="mt-5 block w-full rounded-full bg-[#dc2626] py-2.5 text-center text-sm font-bold text-white shadow hover:bg-[#b91c1c] transition"
                 >
                   Donate Today &rarr;
                 </Link>
@@ -154,7 +154,7 @@ export default function BlogDetailPage({ params }) {
 
               {/* Recent Articles Card */}
               <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-200">
-                <h3 className="font-display text-lg font-bold text-[#2c3e50] border-b border-slate-100 pb-3">
+                <h3 className="font-display text-lg font-bold text-[#122336] border-b border-slate-100 pb-3">
                   Recent Stories
                 </h3>
                 <div className="mt-4 space-y-5">
@@ -168,10 +168,10 @@ export default function BlogDetailPage({ params }) {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[10px] font-bold text-[#f39c12] uppercase tracking-wider">
+                        <span className="text-[10px] font-bold text-[#dc2626] uppercase tracking-wider">
                           {item.category}
                         </span>
-                        <h4 className="font-display text-xs sm:text-sm font-bold leading-snug text-[#2c3e50] group-hover:text-[#f39c12] transition line-clamp-2 mt-0.5">
+                        <h4 className="font-display text-xs sm:text-sm font-bold leading-snug text-[#122336] group-hover:text-[#dc2626] transition line-clamp-2 mt-0.5">
                           <Link href={`/blog/${item.id}`}>
                             {item.title}
                           </Link>
