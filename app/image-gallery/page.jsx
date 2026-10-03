@@ -12,12 +12,29 @@ export default async function ImageGallery() {
     <>
       <PageBanner title="Image Gallery" parent="Media" />
       <section className="container-x py-14">
-        {items.length === 0 ? <p className="text-slate-600">No images yet. Add them from the admin panel.</p> : (
-          <div className="columns-2 gap-4 md:columns-3 lg:columns-4">
+        {items.length === 0 ? (
+          <p className="text-slate-600 text-center py-8">No images yet. Add them from the admin panel.</p>
+        ) : (
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
             {items.map((g, idx) => (
-              <figure key={g.id} className="mb-4 break-inside-avoid overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay={(idx % 4) * 100}>
-                <Photo src={g.url} alt={g.caption || "Gallery image"} className="w-full" />
-                {g.caption && <figcaption className="bg-mist px-3 py-2 text-sm text-slate-600">{g.caption}</figcaption>}
+              <figure
+                key={g.id}
+                className="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group"
+                data-aos="fade-up"
+                data-aos-delay={(idx % 4) * 80}
+              >
+                <div className="overflow-hidden">
+                  <Photo
+                    src={g.url}
+                    alt={g.caption || "Gallery image"}
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                {g.caption && (
+                  <figcaption className="bg-white px-3.5 py-2.5 text-xs sm:text-sm font-medium text-slate-700 border-t border-slate-100">
+                    {g.caption}
+                  </figcaption>
+                )}
               </figure>
             ))}
           </div>

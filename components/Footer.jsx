@@ -305,7 +305,7 @@ export default function Footer() {
         </div>
 
         {/* 3. Bottom Legal & Copyright Bar */}
-        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 pb-16 sm:pb-0">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
 
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -316,6 +316,64 @@ export default function Footer() {
             <Link href="/sitemap.xml" className="hover:text-white transition">Sitemap</Link>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Sticky Quick Action Bar (Only visible on mobile screens < 640px) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#122336]/95 backdrop-blur-md border-t border-white/10 px-3 py-2 flex items-center justify-between gap-2 shadow-2xl sm:hidden">
+        {/* Call Helpline */}
+        <a
+          href={`tel:${site.phone.replace(/\s/g, "")}`}
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-white text-xs font-bold transition"
+        >
+          <svg className="w-3.5 h-3.5 fill-current text-[#dc2626]" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          <span>Call Us</span>
+        </a>
+
+        {/* WhatsApp Chat */}
+        <a
+          href={`https://wa.me/${(site.phone2 || "917900351111").replace(/[^0-9]/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md transition"
+        >
+          <span>WhatsApp</span>
+        </a>
+
+        {/* Direct Donate */}
+        <Link
+          href="/donate"
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] active:scale-95 text-white text-xs font-bold shadow-md shadow-red-900/40 transition"
+        >
+          <svg className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Donate</span>
+        </Link>
+      </div>
+
+      {/* Floating Desktop WhatsApp & Back To Top */}
+      <div className="hidden sm:flex fixed bottom-6 right-6 z-40 flex-col items-center gap-2.5">
+        <a
+          href={`https://wa.me/${(site.phone2 || "917900351111").replace(/[^0-9]/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Chat on WhatsApp"
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 border-2 border-white"
+        >
+          <span className="text-xl">💬</span>
+        </a>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Back to top"
+          title="Back to Top"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-[#122336]/80 hover:bg-[#dc2626] text-white shadow-lg backdrop-blur hover:scale-110 active:scale-95 transition-all duration-200 border border-white/20"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
       </div>
     </footer>
   );

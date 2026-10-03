@@ -70,14 +70,14 @@ export default function BlogPage() {
             </div>
 
             {/* Category Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+            <div className="flex flex-nowrap sm:flex-wrap items-center sm:justify-center gap-2 overflow-x-auto scrollbar-none py-1 px-1">
               {blogCategories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-semibold transition cursor-pointer ${
+                  className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer flex-shrink-0 active:scale-95 ${
                     selectedCategory === cat
-                      ? "bg-[#dc2626] text-white shadow"
+                      ? "bg-[#dc2626] text-white shadow-md shadow-red-900/20"
                       : "bg-white text-slate-600 border border-slate-200 hover:border-[#dc2626] hover:text-[#dc2626]"
                   }`}
                 >

@@ -125,59 +125,66 @@ export default function MilestonesSection({ stats = [] }) {
           {/* Card 1: Free Eye Surgery (Year-wise) */}
           <div
             ref={card1Ref}
-            className="rounded-xl bg-white p-4 sm:p-7 text-center text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between"
-            data-aos="fade-right"
-            data-aos-delay="200"
+            className="rounded-2xl bg-white p-4 sm:p-7 text-center text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="150"
           >
             <div>
-              <h4 className="mb-5 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">
-                Free Eye Surgery &amp; Camps
-              </h4>
-              <div className="flex h-44 sm:h-48 items-end justify-between gap-1 sm:gap-1.5 border-b border-slate-200 px-1 pb-2">
-                {eyeBars.map((b, idx) => {
-                  const targetHeight = Math.round((b.count / maxEye) * 100);
-                  const delayMs = idx * 50 + 100;
-                  return (
-                    <div
-                      key={b.label}
-                      className="flex flex-1 flex-col items-center gap-1 h-full justify-end min-w-0"
-                    >
-                      {/* Count label above bar */}
-                      <span
-                        className="text-[8px] sm:text-[10px] font-bold text-slate-700 truncate transition-all duration-700"
-                        style={{
-                          opacity: card1Visible ? 1 : 0,
-                          transform: card1Visible ? "translateY(0)" : "translateY(6px)",
-                          transitionDelay: `${delayMs + 250}ms`,
-                        }}
-                      >
-                        {b.count}
-                      </span>
-                      {/* Animated bottom-to-up bar */}
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 text-left">
+                  Free Eye Surgery &amp; Camps
+                </h4>
+                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  Year-on-Year Growth
+                </span>
+              </div>
+              <div className="overflow-x-auto scrollbar-none pb-2">
+                <div className="flex h-44 sm:h-52 items-end justify-between gap-1 sm:gap-2 border-b border-slate-200 px-1 pb-2 min-w-[320px] sm:min-w-0">
+                  {eyeBars.map((b, idx) => {
+                    const targetHeight = Math.round((b.count / maxEye) * 100);
+                    const delayMs = idx * 45 + 100;
+                    return (
                       <div
-                        className="w-full max-w-[28px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110 will-change-[height]"
-                        style={{
-                          height: card1Visible ? `${targetHeight}%` : "0%",
-                          transition: `height 850ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
-                        }}
-                      />
-                      {/* Year label below bar */}
-                      <span className="text-[8px] sm:text-[10px] font-semibold text-slate-500 text-center leading-tight mt-1">
-                        {b.label}
-                      </span>
-                    </div>
-                  );
-                })}
+                        key={b.label}
+                        className="flex flex-1 flex-col items-center gap-1 h-full justify-end min-w-0 group cursor-pointer"
+                      >
+                        {/* Count label above bar */}
+                        <span
+                          className="text-[8px] sm:text-[10px] font-bold text-slate-700 truncate transition-all duration-700 group-hover:text-[#dc2626]"
+                          style={{
+                            opacity: card1Visible ? 1 : 0,
+                            transform: card1Visible ? "translateY(0)" : "translateY(6px)",
+                            transitionDelay: `${delayMs + 200}ms`,
+                          }}
+                        >
+                          {b.count}
+                        </span>
+                        {/* Animated bottom-to-up bar */}
+                        <div
+                          className="w-full max-w-[26px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110 active:scale-95 will-change-[height] transition-all"
+                          style={{
+                            height: card1Visible ? `${targetHeight}%` : "0%",
+                            transition: `height 850ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+                          }}
+                        />
+                        {/* Year label below bar */}
+                        <span className="text-[8px] sm:text-[10px] font-semibold text-slate-500 text-center leading-tight mt-1 group-hover:text-slate-800">
+                          {b.label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             {/* Bottom Number Counter */}
-            <div className="mt-6 sm:mt-7 pt-4 border-t border-slate-100">
+            <div className="mt-5 sm:mt-7 pt-4 border-t border-slate-100">
               <p className="font-display text-4xl sm:text-5xl font-extrabold text-[#dc2626] tracking-tight">
-                <AnimatedCounter value={4200} isVisible={card1Visible} duration={1800} />
+                <AnimatedCounter value={4200} isVisible={card1Visible} duration={1800} />+
               </p>
               <span className="mt-1 block text-sm sm:text-base font-bold text-slate-700">
-                Free Eye Surgeries
+                Free Eye Surgeries Performed
               </span>
             </div>
           </div>
@@ -185,62 +192,69 @@ export default function MilestonesSection({ stats = [] }) {
           {/* Card 2: Camps & Campaigns Conducted */}
           <div
             ref={card2Ref}
-            className="rounded-xl bg-white p-4 sm:p-7 text-center text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between"
-            data-aos="fade-left"
-            data-aos-delay="200"
+            className="rounded-2xl bg-white p-4 sm:p-7 text-center text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="250"
           >
             <div>
-              <h4 className="mb-5 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">
-                Camps &amp; Campaigns Conducted
-              </h4>
-              <div className="flex h-44 sm:h-48 items-end justify-between gap-1 sm:gap-3 border-b border-slate-200 px-1 sm:px-3 pb-2">
-                {campBars.map((b, idx) => {
-                  const targetHeight = Math.round((b.count / maxCamp) * 100);
-                  const delayMs = idx * 80 + 100;
-                  return (
-                    <div
-                      key={b.label}
-                      className="flex flex-1 flex-col items-center gap-1.5 h-full justify-end min-w-0"
-                    >
-                      {/* Count label above bar */}
-                      <span
-                        className="text-[10px] sm:text-xs font-bold text-slate-700 truncate transition-all duration-700"
-                        style={{
-                          opacity: card2Visible ? 1 : 0,
-                          transform: card2Visible ? "translateY(0)" : "translateY(6px)",
-                          transitionDelay: `${delayMs + 250}ms`,
-                        }}
-                      >
-                        {b.count}
-                      </span>
-                      {/* Animated bottom-to-up bar */}
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 text-left">
+                  Camps &amp; Campaigns Conducted
+                </h4>
+                <span className="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
+                  Rural Outreach
+                </span>
+              </div>
+              <div className="overflow-x-auto scrollbar-none pb-2">
+                <div className="flex h-44 sm:h-52 items-end justify-between gap-2 sm:gap-3 border-b border-slate-200 px-1 sm:px-3 pb-2 min-w-[300px] sm:min-w-0">
+                  {campBars.map((b, idx) => {
+                    const targetHeight = Math.round((b.count / maxCamp) * 100);
+                    const delayMs = idx * 70 + 100;
+                    return (
                       <div
-                        className="w-full max-w-[44px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110 will-change-[height]"
-                        style={{
-                          height: card2Visible ? `${targetHeight}%` : "0%",
-                          transition: `height 900ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
-                        }}
-                      />
-                      {/* Camp type label below bar */}
-                      <span
-                        title={b.label}
-                        className="text-[9px] sm:text-[11px] font-semibold text-slate-600 text-center leading-tight line-clamp-2 mt-1"
+                        key={b.label}
+                        className="flex flex-1 flex-col items-center gap-1.5 h-full justify-end min-w-0 group cursor-pointer"
                       >
-                        {b.label}
-                      </span>
-                    </div>
-                  );
-                })}
+                        {/* Count label above bar */}
+                        <span
+                          className="text-[10px] sm:text-xs font-bold text-slate-700 truncate transition-all duration-700 group-hover:text-[#dc2626]"
+                          style={{
+                            opacity: card2Visible ? 1 : 0,
+                            transform: card2Visible ? "translateY(0)" : "translateY(6px)",
+                            transitionDelay: `${delayMs + 200}ms`,
+                          }}
+                        >
+                          {b.count}
+                        </span>
+                        {/* Animated bottom-to-up bar */}
+                        <div
+                          className="w-full max-w-[44px] rounded-t-md bg-[#dc2626] shadow-sm hover:brightness-110 active:scale-95 will-change-[height] transition-all"
+                          style={{
+                            height: card2Visible ? `${targetHeight}%` : "0%",
+                            transition: `height 900ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+                          }}
+                        />
+                        {/* Camp type label below bar */}
+                        <span
+                          title={b.label}
+                          className="text-[9px] sm:text-[11px] font-semibold text-slate-600 text-center leading-tight line-clamp-2 mt-1 group-hover:text-slate-800"
+                        >
+                          {b.label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             {/* Bottom Number Counter */}
-            <div className="mt-6 sm:mt-7 pt-4 border-t border-slate-100">
+            <div className="mt-5 sm:mt-7 pt-4 border-t border-slate-100">
               <p className="font-display text-4xl sm:text-5xl font-extrabold text-[#dc2626] tracking-tight">
-                <AnimatedCounter value={465} isVisible={card2Visible} duration={1800} />
+                <AnimatedCounter value={465} isVisible={card2Visible} duration={1800} />+
               </p>
               <span className="mt-1 block text-sm sm:text-base font-bold text-slate-700">
-                Camps &amp; Campaigns
+                Medical &amp; Awareness Camps
               </span>
             </div>
           </div>
