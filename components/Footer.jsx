@@ -88,7 +88,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link
-                  href="/eyecare"
+                  href="/our-works#eye-camp"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
@@ -97,20 +97,29 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/disability-care"
+                  href="/our-works#dental-camp"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Artificial Limbs &amp; Prosthetics</span>
+                  <span>Dental Camps &amp; Oral Health</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/outreach-services"
+                  href="/our-works#oracle-camp"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Rural Mobile Health Clinics</span>
+                  <span>Oracle General Health Camps</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-works#cancer-screening"
+                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
+                >
+                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
+                  <span>Cancer Screening &amp; Awareness</span>
                 </Link>
               </li>
               <li>
@@ -120,15 +129,6 @@ export default function Footer() {
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
                   <span>325+ Rural Medical Camps</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/screening-center"
-                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
-                >
-                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Physiotherapy &amp; Rehabilitation</span>
                 </Link>
               </li>
             </ul>
