@@ -143,9 +143,9 @@ export default function OurWorksPage() {
 
       {/* ── Main layout ── */}
       <main className="bg-white text-slate-800">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* On mobile sidebar comes first, on desktop it floats right */}
-          <div className="flex flex-col lg:flex-row gap-10 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
 
             {/* Sidebar — top on mobile, right on desktop */}
             <aside className="w-full lg:w-72 flex-shrink-0 lg:sticky lg:top-24 self-start lg:max-h-[calc(100vh-7rem)] overflow-y-auto">

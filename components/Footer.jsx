@@ -88,47 +88,74 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link
-                  href="/our-works#eye-camp"
+                  href="/our-works/free-eye-surgery"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Cataract Surgeries &amp; Eye Care</span>
+                  <span>Eye Surgery</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-works#dental-camp"
+                  href="/our-works/rural-eye-camps"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Dental Camps &amp; Oral Health</span>
+                  <span>Rural Eye Camps</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-works#oracle-camp"
+                  href="/our-works/dental-camps"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Oracle General Health Camps</span>
+                  <span>Dental Camps</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-works#cancer-screening"
+                  href="/our-works/general-health-checkup"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Cancer Screening &amp; Awareness</span>
+                  <span>Health Check-up Camps</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-works"
+                  href="/our-works/oracle-eye-hospital"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>325+ Rural Medical Camps</span>
+                  <span>Oracle Eye Hospital</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-works/cancer-screening-camps"
+                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
+                >
+                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
+                  <span>Cancer Screening</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-works/tobacco-awareness"
+                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
+                >
+                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
+                  <span>Tobacco Awareness</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-works/health-talks-webinars"
+                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
+                >
+                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
+                  <span>Health Talks &amp; Webinars</span>
                 </Link>
               </li>
             </ul>
