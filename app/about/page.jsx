@@ -47,12 +47,12 @@ const teamMembers = [
   {
     name: "Mrs. Usha Srivastava",
     role: "Senior Advisor & Renowned Humanitarian",
-    qualification: "Retired UK Govt. Health Dept. (39 Years Service) • Florence Nightingale National Awardee (2011)",
+    qualification: "Retired UK Govt. Health Dept. (39 Years Service) • Florence Nightingale Awardee (2011)",
     badge: "Florence Nightingale Awardee",
     badgeColor: "bg-amber-50 text-amber-800 border-amber-300 font-bold",
     avatarBg: "bg-amber-100 text-amber-800",
     initials: "US",
-    bio: "Mrs. Usha Srivastava is a distinguished social worker decorated with the prestigious FLORENCE NIGHTINGALE NATIONAL AWARD, conferred by the President of India in 2011 for her exceptional healthcare dedication. She retired from the UK Government Health Department after 39 glorious years of service and continues to spread light through Bharat Vikas Parishad and Kripal Seva Sansthan.",
+    bio: "Mrs. Usha Srivastava is a distinguished social worker decorated with the prestigious FLORENCE NIGHTINGALE AWARD, conferred by the President of India in 2011 for her exceptional healthcare dedication. She retired from the UK Government Health Department after 39 glorious years of service and continues to spread light through Bharat Vikas Parishad and Kripal Seva Sansthan.",
     highlights: ["Conferred by the President of India (2011)", "39 Glorious Years in Public Health", "Active in Bharat Vikas Parishad"],
   },
   {
@@ -173,7 +173,7 @@ export default function About() {
               Brief Bio-Data of Members
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 font-body">
-              Our governing trustees and medical directors bring decades of specialized ophthalmic expertise, national healthcare awards, and selfless public service.
+              Our governing trustees and medical directors bring decades of specialized ophthalmic expertise, healthcare awards, and selfless public service.
             </p>
           </div>
 

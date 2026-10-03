@@ -78,7 +78,17 @@ export default function Header() {
                 </button>
                 <div className="invisible absolute left-0 top-full min-w-56 rounded-md border border-slate-200 bg-white py-2 opacity-0 shadow-lg transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                   {item.children.map((c) => (
-                    <Link key={c.href} href={c.href} className="block px-4 py-2 text-sm hover:bg-[#f0f8f4] hover:text-[#dc2626] transition">{c.label}</Link>
+                    <Link 
+                      key={c.href} 
+                      href={c.href} 
+                      className={`block px-4 py-2 text-sm transition ${
+                        c.isHighlight 
+                          ? 'mt-1 border-t border-slate-100 bg-slate-50 font-semibold text-[#122336] hover:bg-[#f0f8f4] hover:text-[#dc2626]' 
+                          : 'hover:bg-[#f0f8f4] hover:text-[#dc2626] text-slate-700'
+                      }`}
+                    >
+                      {c.label}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -130,7 +140,17 @@ export default function Header() {
                       <ul className="pb-2 pl-4 space-y-1">
                         {item.children.map((c) => (
                           <li key={c.href}>
-                            <Link href={c.href} onClick={() => setOpen(false)} className="block py-2 text-slate-600 hover:text-[#dc2626] transition">{c.label}</Link>
+                            <Link 
+                              href={c.href} 
+                              onClick={() => setOpen(false)} 
+                              className={`block py-2 transition ${
+                                c.isHighlight 
+                                  ? 'mt-1 border-t border-slate-100 font-semibold text-slate-800 hover:text-[#dc2626]' 
+                                  : 'text-slate-600 hover:text-[#dc2626]'
+                              }`}
+                            >
+                              {c.label}
+                            </Link>
                           </li>
                         ))}
                       </ul>

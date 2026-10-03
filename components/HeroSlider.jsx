@@ -80,7 +80,7 @@ export default function HeroSlider({ slides = [] }) {
             >
               <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#10b981] animate-pulse flex-shrink-0" />
               <span className="text-[#34d399] font-bold tracking-wide uppercase truncate">
-                {current.badge || "National Award-Winning Healthcare NGO"}
+                {current.badge || "Healthcare NGO"}
               </span>
               <span className="text-white/40 hidden sm:inline">|</span>
               <span className="text-white/90 hidden sm:inline">

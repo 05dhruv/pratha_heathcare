@@ -58,7 +58,7 @@ export default async function Home() {
       {/* 3. Official Trust & Govt. Accreditation Bar */}
       <section className="py-6 bg-slate-50/80 border-b border-slate-200/80">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
             <div className="flex items-center gap-3 pt-3 sm:pt-0 sm:px-3" data-aos="fade-up" data-aos-delay="50">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-700 text-xl font-bold flex-shrink-0">
                 🛡️
@@ -70,27 +70,6 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-3 sm:pt-0 sm:px-3" data-aos="fade-up" data-aos-delay="150">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-700 text-xl font-bold flex-shrink-0">
-                🏆
-              </span>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Govt. Honor</p>
-                <p className="text-sm font-bold text-[#122336]">National Award Winner</p>
-                <p className="text-[11px] text-slate-500">Ministry of Social Justice</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 pt-3 sm:pt-0 sm:px-3" data-aos="fade-up" data-aos-delay="250">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 text-xl font-bold flex-shrink-0">
-                📋
-              </span>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Accreditation</p>
-                <p className="text-sm font-bold text-[#122336]">NITI Aayog Darpan</p>
-                <p className="text-[11px] text-slate-500">Verified NGO Partner</p>
-              </div>
-            </div>
 
             <div className="flex items-center gap-3 pt-3 sm:pt-0 sm:px-3" data-aos="fade-up" data-aos-delay="350">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-red-700 text-xl font-bold flex-shrink-0">
@@ -118,7 +97,7 @@ export default async function Home() {
               Transforming Lives Across Uttar Pradesh
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 font-body leading-relaxed">
-              Pratha Health Care is a prestigious, National Award-winning charitable institution located in Moradabad. 
+              Pratha Health Care is a prestigious charitable institution located in Moradabad. 
               We are dedicated to uplifting marginalized communities through accessible specialized medical care, disability empowerment, and inclusive education.
             </p>
           </div>
