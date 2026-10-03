@@ -134,7 +134,7 @@ export default async function Home() {
               Transforming Lives Across Uttar Pradesh
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 font-body leading-relaxed">
-              Pratha Health Care is a prestigious, National Award-winning charitable institution located in Moradabad. 
+              Pratha Health Care is a prestigious charitable institution located in Moradabad. 
               We are dedicated to uplifting marginalized communities through accessible specialized medical care, disability empowerment, and inclusive education.
             </p>
           </div>

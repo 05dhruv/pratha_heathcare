@@ -54,7 +54,7 @@ export default function Footer() {
               </Link>
 
               <p className="mt-4 text-xs sm:text-sm text-slate-400 leading-relaxed font-body">
-                Pritha Health Care is a National Award-winning charitable institution located in Moradabad, Uttar Pradesh. We are devoted to eradicating avoidable blindness, providing free prosthetics to amputees, and taking mobile healthcare clinics directly to remote villages.
+                Pritha Health Care is a charitable institution located in Moradabad, Uttar Pradesh. We are devoted to eradicating avoidable blindness, providing free prosthetics to amputees, and taking mobile healthcare clinics directly to remote villages.
               </p>
 
               {/* Trust & Tax Badges */}
@@ -62,12 +62,7 @@ export default function Footer() {
                 <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/5 border border-white/10 px-2.5 py-1 text-[11px] font-medium text-slate-300">
                   <span className="text-emerald-400">✓</span> 80G Tax Exempt
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/5 border border-white/10 px-2.5 py-1 text-[11px] font-medium text-slate-300">
-                  <span className="text-amber-400">✓</span> National Awardee
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/5 border border-white/10 px-2.5 py-1 text-[11px] font-medium text-slate-300">
-                  <span className="text-blue-400">✓</span> NITI Aayog Darpan
-                </span>
+
               </div>
             </div>
 
@@ -88,47 +83,75 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link
-                  href="/eyecare"
+                  href="/our-works/free-eye-surgery"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Cataract Surgeries &amp; Eye Care</span>
+                  <span>Eye Surgery</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/disability-care"
+                  href="/our-works/rural-eye-camps"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Artificial Limbs &amp; Prosthetics</span>
+                  <span>Rural Eye Camps</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/outreach-services"
+                  href="/our-works/dental-camps"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Rural Mobile Health Clinics</span>
+                  <span>Dental Camps</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-works"
+                  href="/our-works/general-health-checkup"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>325+ Rural Medical Camps</span>
+                  <span>Health Check-up Camps</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/our-works/cancer-screening-camps"
+                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
+                >
+                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
+                  <span>Cancer Screening</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/screening-center"
+                  href="/our-works/tobacco-awareness"
                   className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
                 >
                   <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
-                  <span>Physiotherapy &amp; Rehabilitation</span>
+                  <span>Tobacco Awareness</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-works/health-talks-webinars"
+                  className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-2 group"
+                >
+                  <span className="text-red-500 font-bold group-hover:text-red-400">&rsaquo;</span>
+                  <span>Health Talks &amp; Webinars</span>
+                </Link>
+              </li>
+              <li className="pt-2 mt-2 border-t border-slate-700/50">
+                <Link
+                  href="/our-works/oracle-eye-hospital"
+                  className="text-amber-400 hover:text-amber-300 hover:translate-x-1 transition inline-flex items-center gap-2 group font-medium"
+                >
+                  <span className="text-amber-500 font-bold group-hover:text-amber-400">&rsaquo;</span>
+                  <span>Oracle Eye Hospital</span>
                 </Link>
               </li>
             </ul>

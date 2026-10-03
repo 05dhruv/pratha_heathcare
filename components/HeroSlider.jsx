@@ -98,7 +98,7 @@ export default function HeroSlider({ slides = [] }) {
             <div className="hero-animate-badge inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white/15 px-2.5 sm:px-3.5 py-1 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-xs font-medium mb-2.5 sm:mb-4 shadow-sm max-w-full">
               <span className="flex h-2 w-2 rounded-full bg-[#10b981] animate-pulse flex-shrink-0" />
               <span className="text-[#34d399] font-bold tracking-wide uppercase truncate">
-                {current.badge || "National Award-Winning Healthcare NGO"}
+                {current.badge || "Healthcare NGO"}
               </span>
               <span className="text-white/40 hidden sm:inline">|</span>
               <span className="text-white/90 hidden sm:inline">
