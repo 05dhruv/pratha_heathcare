@@ -58,7 +58,7 @@ export default async function Home() {
       {/* 3. Official Trust & Govt. Accreditation Bar */}
       <section className="py-6 sm:py-8 bg-slate-50/90 border-b border-slate-200/80">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
             <div
               className="flex items-center gap-2.5 sm:gap-3.5 p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-blue-200 transition-all group"
               data-aos="fade-up"
@@ -71,36 +71,6 @@ export default async function Home() {
                 <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 truncate">Tax Exemption</p>
                 <p className="text-xs sm:text-sm font-bold text-[#122336] truncate">80G &amp; 12A Certified</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 truncate">50% IT Tax Deduction</p>
-              </div>
-            </div>
-
-            <div
-              className="flex items-center gap-2.5 sm:gap-3.5 p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-amber-200 transition-all group"
-              data-aos="fade-up"
-              data-aos-delay="120"
-            >
-              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-700 text-lg sm:text-xl font-bold flex-shrink-0 group-hover:scale-105 transition-transform">
-                🏆
-              </span>
-              <div className="min-w-0">
-                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 truncate">Govt. Honor</p>
-                <p className="text-xs sm:text-sm font-bold text-[#122336] truncate">National Awardee</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 truncate">Social Justice Ministry</p>
-              </div>
-            </div>
-
-            <div
-              className="flex items-center gap-2.5 sm:gap-3.5 p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-emerald-200 transition-all group"
-              data-aos="fade-up"
-              data-aos-delay="190"
-            >
-              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 text-lg sm:text-xl font-bold flex-shrink-0 group-hover:scale-105 transition-transform">
-                📋
-              </span>
-              <div className="min-w-0">
-                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 truncate">Accreditation</p>
-                <p className="text-xs sm:text-sm font-bold text-[#122336] truncate">NITI Aayog Darpan</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 truncate">Verified NGO Partner</p>
               </div>
             </div>
 
