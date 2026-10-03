@@ -85,18 +85,18 @@ export default function Header() {
       {/* Main Navbar */}
       <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between py-2 sm:py-2.5">
         {/* Brand Logo & Name */}
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 group min-w-0">
+        <Link href="/" className="flex items-center gap-1.5 sm:gap-3 flex-shrink min-w-0 mr-1 sm:mr-3 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/logo.jpg"
             alt="Pritha Health Care Logo"
-            className="h-10 sm:h-12 md:h-14 w-auto object-contain rounded-lg shadow-sm border border-slate-200/80 transition-transform duration-300 group-hover:scale-105 flex-shrink-0"
+            className="h-8 sm:h-11 md:h-14 w-auto object-contain rounded-lg shadow-sm border border-slate-200/80 transition-transform duration-300 group-hover:scale-105 flex-shrink-0"
           />
           <div className="flex flex-col justify-center min-w-0">
-            <span className="font-display font-bold text-sm sm:text-base md:text-xl lg:text-2xl text-[#122336] tracking-tight leading-none group-hover:text-[#dc2626] transition-colors">
+            <span className="font-display font-bold text-xs sm:text-base md:text-xl lg:text-2xl text-[#122336] tracking-tight leading-none group-hover:text-[#dc2626] transition-colors truncate">
               PRITHA HEALTH CARE
             </span>
-            <span className="text-[9px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#dc2626] mt-0.5">
+            <span className="text-[8px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#dc2626] mt-0.5 truncate hidden sm:block">
               The Breath of Life
             </span>
           </div>
@@ -144,23 +144,29 @@ export default function Header() {
           )}
           <Link
             href="/csr-funding"
-            className="inline-flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold ml-3 px-4 py-2 text-xs transition"
+            className="btn ml-3 !px-4 !py-2 text-xs font-bold shadow-md hover:shadow-lg transition-transform"
           >
             CSR Funding
           </Link>
           <Link
             href="/donate"
-            className="btn ml-2 !px-5 !py-2 text-xs font-bold shadow-md hover:shadow-lg transition-transform"
+            className="btn ml-2 !px-4 !py-2 text-xs font-bold shadow-md hover:shadow-lg transition-transform"
           >
             Donate Now
           </Link>
         </nav>
 
         {/* Mobile Action Buttons + Hamburger */}
-        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden flex-shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2 lg:hidden flex-shrink-0">
+          <Link
+            href="/csr-funding"
+            className="btn !px-2 sm:!px-3 !py-1 sm:!py-1.5 text-[10px] sm:text-xs font-bold shadow-sm whitespace-nowrap active:scale-95"
+          >
+            <span>CSR Funding</span>
+          </Link>
           <Link
             href="/donate"
-            className="btn !px-3 sm:!px-4 !py-1.5 text-xs font-bold shadow-sm"
+            className="btn !px-2 sm:!px-3 !py-1 sm:!py-1.5 text-[10px] sm:text-xs font-bold shadow-sm whitespace-nowrap active:scale-95"
           >
             <span>Donate</span>
           </Link>
@@ -168,7 +174,7 @@ export default function Header() {
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-label="Toggle navigation menu"
-            className="rounded-lg border border-slate-200 p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none active:scale-95"
+            className="rounded-lg border border-slate-200 p-1.5 sm:p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none active:scale-95"
           >
             {open ? (
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,9 +191,9 @@ export default function Header() {
 
       {/* Animated Mobile Navigation Drawer with Backdrop */}
       {open && (
-        <div className="fixed inset-0 top-[96px] z-50 lg:hidden flex flex-col bg-black/50 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 top-[90px] sm:top-[96px] z-50 lg:hidden flex flex-col bg-black/50 backdrop-blur-sm animate-fade-in">
           <nav
-            className="bg-white border-b border-slate-200 shadow-2xl max-h-[calc(100vh-100px)] overflow-y-auto animate-slide-down"
+            className="bg-white border-b border-slate-200 shadow-2xl max-h-[calc(100vh-96px)] overflow-y-auto animate-slide-down"
             aria-label="Mobile Navigation"
           >
             <div className="p-4 sm:p-6 space-y-1">
@@ -250,14 +256,14 @@ export default function Header() {
                 <Link
                   href="/csr-funding"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl bg-white border border-slate-200 py-2.5 px-3 text-center text-xs font-bold text-slate-800 hover:border-[#dc2626] shadow-sm transition"
+                  className="btn !w-full !py-2.5 text-center text-xs font-bold shadow-sm active:scale-95"
                 >
                   CSR Funding
                 </Link>
                 <Link
                   href="/donate"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl bg-[#dc2626] py-2.5 px-3 text-center text-xs font-bold text-white shadow-sm hover:bg-[#b91c1c] transition"
+                  className="btn !w-full !py-2.5 text-center text-xs font-bold shadow-sm active:scale-95"
                 >
                   Donate Now
                 </Link>
